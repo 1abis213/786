@@ -237,6 +237,36 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .hours .t{color:#EDE8D8;font-size:0.82rem;text-align:right}
 .hours .n{grid-column:span 2;font-size:0.72rem;color:#555;font-style:italic;margin-top:2px}
 
+/* Services */
+.services{padding:120px 0;background:#0E0E0E}
+.services .sv-head{text-align:center;max-width:640px;margin:0 auto 60px}
+.services .sv-head .gold-line{width:40px;height:2px;background:#C99700;margin:0 auto 16px;border-radius:1px}
+.services .sv-head h2{margin-bottom:16px}
+.services .sv-head p{color:#888;font-size:0.95rem;line-height:1.7}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sv-card{position:relative;padding:40px 36px 36px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:20px;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);overflow:hidden}
+.sv-card::before{content:'';position:absolute;top:0;right:0;width:64px;height:64px;background:linear-gradient(135deg,transparent 50%,rgba(201,151,0,0.06) 50%);border-radius:0 20px 0 0;transition:all 0.4s;pointer-events:none}
+.sv-card::after{content:'';position:absolute;top:10px;right:10px;width:4px;height:4px;background:#C99700;border-radius:50%;opacity:0.25;transition:opacity 0.4s;pointer-events:none}
+.sv-card:hover{transform:translateY(-4px);border-color:rgba(201,151,0,0.3);box-shadow:0 12px 40px rgba(201,151,0,0.06),0 0 60px rgba(201,151,0,0.03);background:#181818}
+.sv-card:hover::before{background:linear-gradient(135deg,transparent 50%,rgba(201,151,0,0.12) 50%)}
+.sv-card:hover::after{opacity:0.7}
+.sv-card .sv-icon{font-size:1.6rem;color:#C99700;margin-bottom:18px;display:inline-block;transition:transform 0.4s ease}
+.sv-card:hover .sv-icon{transform:scale(1.08) rotate(-3deg)}
+.sv-card h3{font-size:1.15rem;margin-bottom:6px}
+.sv-card .sv-divider{width:32px;height:1.5px;background:linear-gradient(90deg,#C99700,transparent);margin:12px 0 14px;border-radius:1px}
+.sv-card p{font-size:0.85rem;color:#777;line-height:1.65;margin-bottom:20px}
+.sv-card .sv-badge{display:inline-block;padding:4px 10px;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.2);border-radius:6px;font-size:0.66rem;font-weight:600;color:#4CAF50;margin-bottom:16px}
+.sv-card .sv-cta{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#C99700;padding:8px 0;transition:all 0.3s;border-bottom:1px solid rgba(201,151,0,0);cursor:pointer}
+.sv-card .sv-cta:hover{color:#D4A800;gap:10px;border-bottom-color:rgba(201,151,0,0.3)}
+.sv-card .sv-cta i{font-size:0.7rem;transition:transform 0.3s}
+.sv-card .sv-cta:hover i{transform:translateX(3px)}
+.sv-why-strip{margin-top:60px;padding:36px 40px;background:rgba(20,20,20,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(201,151,0,0.12);border-radius:20px;box-shadow:0 0 40px rgba(201,151,0,0.04);text-align:center}
+.sv-why-strip h3{font-size:1.2rem;margin-bottom:20px;color:#EDE8D8}
+.sv-why-strip h3 em{font-style:normal;color:#C99700}
+.sv-why-strip .sv-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 20px;max-width:720px;margin:0 auto}
+.sv-why-strip .sv-why-grid span{display:flex;align-items:center;justify-content:center;gap:7px;font-size:0.85rem;color:#999;padding:5px 0}
+.sv-why-strip .sv-why-grid span i{color:#C99700;font-size:0.55rem}
+
 /* FAQ */
 .faq-wrap{max-width:680px;margin:0 auto}
 .faq-item{border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -322,10 +352,22 @@ footer p{font-size:0.82rem;color:#666}
   .info-window{min-width:220px;padding:18px}
   .info-window .iw-name{font-size:0.95rem}
   .info-window .iw-actions a{padding:8px 12px;font-size:0.72rem}
+  .services-grid{grid-template-columns:1fr}
+  .sv-card{padding:32px 28px}
+  .sv-why-strip{padding:28px 24px}
+  .sv-why-strip .sv-why-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
   .gallery-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr;gap:16px}
+  .sv-card{padding:28px 24px}
+  .services .sv-head{margin-bottom:40px}
+  .sv-card .sv-icon{font-size:1.4rem}
+  .sv-card h3{font-size:1.05rem}
+  .sv-why-strip{padding:24px 20px}
+  .sv-why-strip .sv-why-grid{grid-template-columns:1fr}
+  .sv-why-strip h3{font-size:1rem}
   .hero-content h1{font-size:clamp(1.6rem,8vw,2.4rem)}
   .faq-wrap{padding:0 20px}
   .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px 10px;gap:3px}
@@ -343,6 +385,7 @@ footer p{font-size:0.82rem;color:#666}
       <a href="#story" data-i18n="nav_story">Story</a>
       <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
       <a href="#reviews" data-i18n="nav_reviews">Reviews</a>
       <a href="#order" data-i18n="nav_order_link">Order</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -357,6 +400,7 @@ footer p{font-size:0.82rem;color:#666}
   <a href="#story" class="ml" data-i18n="nav_story">Story</a>
   <a href="#menu" class="ml" data-i18n="nav_menu">Menu</a>
   <a href="#gallery" class="ml" data-i18n="nav_gallery">Gallery</a>
+  <a href="#services" class="ml" data-i18n="nav_services">Services</a>
   <a href="#reviews" class="ml" data-i18n="nav_reviews">Reviews</a>
   <a href="#order" class="ml" data-i18n="nav_order_link">Order</a>
   <a href="#contact" class="ml" data-i18n="nav_contact">Contact</a>
@@ -597,6 +641,59 @@ footer p{font-size:0.82rem;color:#666}
   </div>
 </section>
 
+<section class="services" id="services">
+  <div class="container">
+    <div class="sv-head">
+      <div class="gold-line"></div>
+      <div class="label" data-i18n="sv_label">Our Services</div>
+      <h2 data-i18n="sv_h2">Dine in, take out, catered</h2>
+      <p data-i18n="sv_sub">Enjoy authentic Pakistani hospitality whether you dine with us, take your meal home, or let us cater your next event.</p>
+    </div>
+    <div class="services-grid">
+      <div class="sv-card">
+        <i class="fas fa-utensils sv-icon"></i>
+        <h3 data-i18n="sv1_title">Dine-In Experience</h3>
+        <div class="sv-divider"></div>
+        <p data-i18n="sv1_desc">Enjoy authentic Pakistani halal cuisine in a clean, welcoming, and elegant dining environment. Our spacious restaurant and warm hospitality are designed to make every meal feel like home, bringing the rich flavors and traditions of Pakistan to Montreal.</p>
+        <a href="#contact" class="sv-cta" data-i18n="sv1_cta">Reserve a Table <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="sv-card">
+        <i class="fas fa-bag-shopping sv-icon"></i>
+        <h3 data-i18n="sv2_title">Takeout</h3>
+        <div class="sv-divider"></div>
+        <p data-i18n="sv2_desc">Take the taste of Pakistan wherever you go. Every order is carefully prepared and packaged using high-quality food-safe materials to preserve freshness, flavor, and presentation from our kitchen to your table.</p>
+        <a href="#order" class="sv-cta" data-i18n="sv2_cta">Order Takeout <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="sv-card">
+        <i class="fas fa-truck sv-icon"></i>
+        <h3 data-i18n="sv3_title">Delivery</h3>
+        <div class="sv-divider"></div>
+        <p data-i18n="sv3_desc">Enjoy freshly prepared Pakistani cuisine delivered straight to your door. We proudly offer complimentary delivery within a 5 km radius while maintaining fast service and exceptional food quality.</p>
+        <div class="sv-badge" data-i18n="sv3_badge">Free Delivery within 5 km</div>
+        <a href="#order" class="sv-cta" data-i18n="sv3_cta">Order Delivery <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="sv-card">
+        <i class="fas fa-calendar-check sv-icon"></i>
+        <h3 data-i18n="sv4_title">Catering</h3>
+        <div class="sv-divider"></div>
+        <p data-i18n="sv4_desc">From intimate family gatherings to weddings, corporate events, and large celebrations, our experienced catering team creates customized menus tailored to your guests, preferences, and budget while delivering authentic Pakistani flavors.</p>
+        <a href="#contact" class="sv-cta" data-i18n="sv4_cta">Request Catering <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="sv-why-strip">
+      <h3><i class="fas fa-star" style="color:#C99700;font-size:0.9rem;margin-right:6px"></i> <span data-i18n="sv_why_title">Why Choose 786 Halal Restaurant?</span></h3>
+      <div class="sv-why-grid">
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why1">Authentic Pakistani Recipes</span></span>
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why2">100% Halal Ingredients</span></span>
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why3">Freshly Prepared Daily</span></span>
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why4">Family-Friendly Atmosphere</span></span>
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why5">Catering for Every Occasion</span></span>
+        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why6">Fast Takeout &amp; Delivery</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section style="padding:120px 0;background:#0E0E0E" id="order">
   <div class="container" style="max-width:720px">
     <div class="label" style="text-align:center" data-i18n="or_label">Order now</div>
@@ -742,6 +839,7 @@ footer p{font-size:0.82rem;color:#666}
         <a href="#story" data-i18n="ft_story">Our story</a>
         <a href="#menu" data-i18n="ft_menu">Menu</a>
         <a href="#gallery" data-i18n="ft_gallery">Gallery</a>
+        <a href="#services" data-i18n="ft_services">Services</a>
         <a href="#reviews" data-i18n="ft_reviews">Reviews</a>
       </div>
       <div>
@@ -790,20 +888,20 @@ function animateIn(sel,fromVars){
   });
 }
 
-document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
+document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
 
-ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid',{
+ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip',{
   start:'top 87%',
   once:true,
   onEnter:batch=>gsap.to(batch,{opacity:1,y:0,duration:0.9,stagger:0.15,ease:'power3.out'})
 });
 
-ScrollTrigger.batch('.r-card,.why-card,.gallery-grid .item',{
+ScrollTrigger.batch('.r-card,.why-card,.gallery-grid .item,.sv-card',{
   start:'top 88%',
   once:true,
   onEnter:batch=>gsap.to(batch,{opacity:1,y:0,scale:1,duration:0.8,stagger:0.06,ease:'power2.out'})
 });
-document.querySelectorAll('.r-card,.why-card,.gallery-grid .item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.scale='0.98'});
+document.querySelectorAll('.r-card,.why-card,.gallery-grid .item,.sv-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.scale='0.98'});
 }catch(e){console.warn('GSAP init skipped:',e)}
 
 // Mobile nav
@@ -934,7 +1032,7 @@ window.addEventListener('scroll',()=>{
 // ── i18n ──────────────────────────────────────────────────────────────────────
 const translations={
   // Nav
-  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_reviews:"Avis",nav_order_link:"Commander",nav_order_cta:"Commander en ligne",nav_contact:"Contact",
+  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_services:"Services",nav_reviews:"Avis",nav_order_link:"Commander",nav_order_cta:"Commander en ligne",nav_contact:"Contact",
   // Hero
   hero_badge:"Montréal · Depuis 2008",hero_h1:"La nourriture pakistanaise,<br>telle qu'elle devrait être.",
   hero_p:"850 Jean-Talon Ouest. 100% Zabiha Halal. Recettes familiales transmises depuis trois générations.",
@@ -1024,6 +1122,21 @@ const translations={
   wh2_h:"Épices moulues à la main",wh2_p:"Chaque mélange d'épices est fait en cuisine, en petits lots. Pas de raccourcis, pas de mélanges prêts. Comme on faisait avant.",
   wh3_h:"Tandoor traditionnel",wh3_p:"Notre four à argile est allumé tous les jours depuis 2008. Naan frais, kebabs et tikka préparés sur commande — à chaque fois.",
   wh4_h:"Entreprise familiale",wh4_p:"La famille Khan sert Montréal depuis 2008. Trois générations, une cuisine, un quartier.",
+  // Services
+  sv_label:"Nos Services",sv_h2:"Sur place, à emporter, traiteur",
+  sv_sub:"Profitez de l'hospitalité pakistanaise authentique, que ce soit pour manger sur place, emporter votre repas à la maison ou nous faire traiteur pour votre prochain événement.",
+  sv1_title:"Expérience Sur Place",sv1_desc:"Savourez une cuisine halal pakistanaise authentique dans un cadre élégant et accueillant. Notre restaurant spacieux et notre hospitalité chaleureuse sont conçus pour rendre chaque repas comme à la maison, apportant les riches saveurs et traditions du Pakistan à Montréal.",
+  sv1_cta:"Réserver une Table",
+  sv2_title:"À Emporter",sv2_desc:"Emportez le goût du Pakistan partout où vous allez. Chaque commande est soigneusement préparée et emballée dans des matériaux de qualité alimentaire pour préserver la fraîcheur, la saveur et la présentation de notre cuisine à votre table.",
+  sv2_cta:"Commander à Emporter",
+  sv3_title:"Livraison",sv3_desc:"Savourez une cuisine pakistanaise fraîchement préparée livrée directement chez vous. Nous offrons fièrement la livraison gratuite dans un rayon de 5 km tout en maintenant un service rapide et une qualité exceptionnelle.",
+  sv3_badge:"Livraison Gratuite dans 5 km",sv3_cta:"Commander",
+  sv4_title:"Traiteur",sv4_desc:"Des réunions intimes aux mariages, événements d'entreprise et grandes célébrations, notre équipe de traiteur expérimentée crée des menus personnalisés adaptés à vos invités, préférences et budget tout en offrant des saveurs pakistanaises authentiques.",
+  sv4_cta:"Demander un Devis",
+  sv_why_title:"Pourquoi Choisir 786 Halal Restaurant ?",
+  sv_why1:"Recettes Pakistanaises Authentiques",sv_why2:"100% Ingrédients Halal",sv_why3:"Préparé Fraîchement Chaque Jour",
+  sv_why4:"Ambiance Familiale",sv_why5:"Traiteur pour Toute Occasion",sv_why6:"Service Rapide à Emporter et Livraison",
+  ft_services:"Services",
   // Order
   or_label:"Commander",or_h2:"Obtenez 786 livré ou à emporter",
   or_sub:"Livraison • À emporter",or_cta:"Commander →",or_online:"Commande en ligne",or_direct:"À emporter directement",
@@ -1041,7 +1154,7 @@ const translations={
   faq_q6:"Où êtes-vous situés ?",faq_a6:"Nous sommes au 850 rue Jean-Talon Ouest, Montréal, QC H3N 1S4. Près du coin de Jean-Talon et Bloomfield, à quelques pas du métro Jean-Talon. Stationnement de rue abondant.",
   // Footer
   ft_tagline:"Cuisine pakistanaise à Montréal. 100% Zabiha Halal. Entreprise familiale.",
-  ft_order:"Commander",ft_online:"Commande en ligne",ft_links:"Liens",ft_story:"Notre histoire",ft_menu:"Menu",ft_gallery:"Galerie",ft_reviews:"Avis",ft_contact:"Contact",
+  ft_order:"Commander",ft_online:"Commande en ligne",ft_links:"Liens",ft_story:"Notre histoire",ft_menu:"Menu",ft_gallery:"Galerie",ft_services:"Services",ft_reviews:"Avis",ft_contact:"Contact",
   ft_copy:"© 2026 786 Halal Restaurant — Tous droits réservés",ft_since:"Fait avec tradition depuis 2008",
   // Floating bar
   bar_pickup:"À emporter",bar_call:"Appeler"

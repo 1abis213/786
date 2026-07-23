@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"786 Halal Restaurant","url":"https://786halalrestaurant.com","telephone":"+1-514-270-0786","email":"info@786halalrestaurant.com","servesCuisine":["Pakistani","Halal","South Asian"],"priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"850 Rue Jean-Talon Ouest","addressLocality":"Montreal","addressRegion":"QC","postalCode":"H3N 1S4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.5255,"longitude":-73.6279},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"11:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/786halalrestaurant/","https://www.facebook.com/786HalalRestaurant/"]}
+{"@context":"https://schema.org","@type":"Restaurant","name":"786 Halal Restaurant","url":"https://786halalrestaurant.com","telephone":"+1-514-270-0786","email":"info@786halalrestaurant.com","servesCuisine":["Pakistani","Halal","South Asian"],"priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"850 Rue Jean-Talon Ouest","addressLocality":"Montreal","addressRegion":"QC","postalCode":"H3N 1S4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.5255,"longitude":-73.6279},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"11:00","closes":"13:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"14:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/786halalrestaurant/","https://www.facebook.com/786HalalRestaurant/"]}
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -245,7 +245,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .faq-q i{font-size:0.78rem;color:#555;transition:transform 0.3s}
 .faq-item.active .faq-q i{transform:rotate(180deg);color:#C99700}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0}
-.faq-item.active .faq-a{max-height:300px;padding:0 0 18px}
+.faq-item.active .faq-a{max-height:1000px;padding:0 0 18px}
 .faq-a p{font-size:0.88rem;color:#777;line-height:1.6}
 
 /* Footer */
@@ -328,8 +328,8 @@ footer p{font-size:0.82rem;color:#666}
   .why-grid{grid-template-columns:1fr}
   .hero-content h1{font-size:clamp(1.6rem,8vw,2.4rem)}
   .faq-wrap{padding:0 20px}
-  .floating-bar{flex-wrap:nowrap;justify-content:flex-start;width:calc(100% - 16px);border-radius:100px;padding:6px 10px;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:2px}
-  .floating-bar a{flex:none;padding:8px 12px;font-size:0.78rem}
+  .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px 10px;gap:3px}
+  .floating-bar a{flex:1;justify-content:center;min-width:70px;padding:7px 6px;font-size:0.72rem;gap:4px}
   .floating-bar .sep{display:none}
 }
 </style>
@@ -344,10 +344,10 @@ footer p{font-size:0.82rem;color:#666}
       <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
       <a href="#reviews" data-i18n="nav_reviews">Reviews</a>
-      <a href="#order" data-i18n="nav_order">Order</a>
+      <a href="#order" data-i18n="nav_order_link">Order</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
-    <a href="#order" class="nav-order" data-i18n="nav_order">Order online</a>
+    <a href="#order" class="nav-order" data-i18n="nav_order_cta">Order online</a>
     <button class="nav-lang" id="langToggle">FR</button>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -358,7 +358,7 @@ footer p{font-size:0.82rem;color:#666}
   <a href="#menu" class="ml" data-i18n="nav_menu">Menu</a>
   <a href="#gallery" class="ml" data-i18n="nav_gallery">Gallery</a>
   <a href="#reviews" class="ml" data-i18n="nav_reviews">Reviews</a>
-  <a href="#order" class="ml" data-i18n="nav_order">Order</a>
+  <a href="#order" class="ml" data-i18n="nav_order_link">Order</a>
   <a href="#contact" class="ml" data-i18n="nav_contact">Contact</a>
   <button class="ml mobile-lang" id="mobileLang" style="margin-top:16px;background:rgba(255,255,255,0.08);color:#EDE8D8;border:none;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer">FR</button>
 </div>
@@ -517,7 +517,7 @@ footer p{font-size:0.82rem;color:#666}
   </div>
   <div class="reviews-wrap">
     <div class="reviews-carousel">
-      <div class="carousel-track" id="reviewTrack">
+      <div class="carousel-track" id="reviewTrack" aria-live="polite">
         <div class="r-card"><div class="top"><div class="avatar" style="background:#1E2A10">AA</div><div><div class="name">Ali A.</div><div class="date">Google &middot; <span data-i18n="rv_d1">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q1">&ldquo;The <strong>Chicken Chargha</strong> is the best I've had outside Lahore. Crispy, perfectly spiced, incredible masala. A hidden Montreal gem.&rdquo;</blockquote></div>
         <div class="r-card"><div class="top"><div class="avatar" style="background:#2A1A1A">SK</div><div><div class="name">Sara K.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d2">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q2">&ldquo;Ordered the <strong>Beef Nihari</strong> for the first time &ndash; absolutely incredible depth of flavour. The naan arrived fresh even through delivery. So impressed.&rdquo;</blockquote></div>
         <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">MR</div><div><div class="name">Mohammad R.</div><div class="date">Google &middot; <span data-i18n="rv_d3">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q3">&ldquo;The <strong>Chicken Biryani</strong> is out of this world. Generous portions, amazing aroma, great service. You can taste the tradition in every bite.&rdquo;</blockquote></div>
@@ -559,8 +559,8 @@ footer p{font-size:0.82rem;color:#666}
         <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E2E">NW</div><div><div class="name">Nazia W.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d39">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q39">&ldquo;The <strong>Chicken Chargha</strong> is absolutely addictive. That crispy, spiced skin is perfection. The meat is so tender it falls off the bone. A must-order every time.&rdquo;</blockquote></div>
         <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">RT</div><div><div class="name">Rahat T.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d40">Yesterday</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q40">&ldquo;Ordered catering from 786 for our office event &ndash; huge hit. The <strong>Chicken Biryani</strong> and <strong>Butter Chicken</strong> fed 20 people. Everyone asked where it was from.&rdquo;</blockquote></div>
       </div>
-      <button class="carousel-btn prev" id="reviewPrev"><i class="fas fa-chevron-left"></i></button>
-      <button class="carousel-btn next" id="reviewNext"><i class="fas fa-chevron-right"></i></button>
+      <button class="carousel-btn prev" id="reviewPrev" aria-label="Previous review"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-btn next" id="reviewNext" aria-label="Next review"><i class="fas fa-chevron-right"></i></button>
     </div>
     <div class="carousel-dots" id="reviewDots"></div>
   </div>
@@ -636,14 +636,14 @@ footer p{font-size:0.82rem;color:#666}
     </div>
     <!-- Premium info card overlay -->
     <div class="map-card">
-      <div class="mc-badge"><i class="fas fa-mosque"></i> 100% Zabiha Halal</div>
+      <div class="mc-badge"><i class="fas fa-mosque"></i> <span data-i18n="mc_badge">100% Zabiha Halal</span></div>
       <div class="mc-name">786 Halal Restaurant</div>
       <div class="mc-addr"><i class="fas fa-location-dot"></i> 850 Rue Jean-Talon Ouest, Montréal, QC</div>
-      <div class="mc-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="count">4.2 &middot; 4,200+ reviews <span class="mc-info"><i class="fas fa-info-circle"></i><span class="mc-tip">Average across Google (3.9 / 1,700+), Uber Eats (4.5 / 2,000+), DoorDash (4.3 / 500+)</span></span></span></div>
+      <div class="mc-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="count">4.2 &middot; 4,200+ <span data-i18n="mc_reviews">reviews</span> <span class="mc-info"><i class="fas fa-info-circle"></i><span class="mc-tip" data-i18n="mc_tip">Average across Google (3.9 / 1,700+), Uber Eats (4.5 / 2,000+), DoorDash (4.3 / 500+)</span></span></span></div>
       <div class="mc-hours" id="mcHours"><i class="fas fa-clock"></i><span id="mcStatus"></span></div>
       <div class="mc-actions">
         <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" class="mc-dir"><i class="fas fa-diamond-turn-right"></i> <span data-i18n="loc_directions">Get directions</span></a>
-        <a href="tel:+15142700786" class="mc-call"><i class="fas fa-phone"></i> Call</a>
+        <a href="tel:+15142700786" class="mc-call"><i class="fas fa-phone"></i> <span data-i18n="mc_call">Call</span></a>
       </div>
     </div>
     <!-- Animated marker -->
@@ -934,7 +934,7 @@ window.addEventListener('scroll',()=>{
 // ── i18n ──────────────────────────────────────────────────────────────────────
 const translations={
   // Nav
-  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_reviews:"Avis",nav_order:"Commander en ligne",nav_contact:"Contact",
+  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_reviews:"Avis",nav_order_link:"Commander",nav_order_cta:"Commander en ligne",nav_contact:"Contact",
   // Hero
   hero_badge:"Montréal · Depuis 2008",hero_h1:"La nourriture pakistanaise,<br>telle qu'elle devrait être.",
   hero_p:"850 Jean-Talon Ouest. 100% Zabiha Halal. Recettes familiales transmises depuis trois générations.",
@@ -1030,6 +1030,7 @@ const translations={
   or_phone:"Ou appelez pour commander",
   // Location
   loc_h2:"Rendez-nous visite",loc_directions:"Obtenir les directions",
+  mc_badge:"100% Halal Zabiha",mc_reviews:"avis",mc_tip:"Moyenne sur Google (3.9 / 1 700+), Uber Eats (4.5 / 2 000+), DoorDash (4.3 / 500+)",mc_call:"Appeler",
   // FAQ
   faq_label:"Questions",faq_h2:"Questions fréquentes",
   faq_q1:"La viande est-elle 100% Halal ?",faq_a1:"Oui. Nous sommes un restaurant 100% Zabiha Halal. Notre poulet, agneau et bœuf proviennent de fournisseurs Halal certifiés. Notre cuisine est entièrement conforme au Halal.",

@@ -1,0 +1,960 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>786 Halal Restaurant — Montreal</title>
+<meta name="description" content="Pakistani food, Montreal. 850 Rue Jean-Talon Ouest. 100% Zabiha Halal. Family owned since 2008.">
+<meta name="theme-color" content="#0E0E0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"786 Halal Restaurant","url":"https://786halalrestaurant.com","telephone":"+1-514-270-0786","email":"info@786halalrestaurant.com","servesCuisine":["Pakistani","Halal","South Asian"],"priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"850 Rue Jean-Talon Ouest","addressLocality":"Montreal","addressRegion":"QC","postalCode":"H3N 1S4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.5255,"longitude":-73.6279},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"11:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/786halalrestaurant/","https://www.facebook.com/786HalalRestaurant/"]}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0E0E0E;color:#D4D4D4;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:#C99700;color:#0E0E0E}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font-family:inherit;border:none;background:none;color:inherit;outline:none}
+.container{max-width:1320px;margin:0 auto;padding:0 32px}
+.container-narrow{max-width:860px;margin:0 auto;padding:0 32px}
+.container-wide{max-width:100%;padding:0}
+
+h1,h2,h3,h4{font-family:'Inter Tight','Inter',sans-serif;font-weight:600;letter-spacing:-0.01em;color:#EDE8D8}
+h1{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.06;font-weight:700}
+h2{font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.1;font-weight:600}
+h3{font-size:clamp(1.2rem,1.8vw,1.6rem);line-height:1.2}
+p{line-height:1.7;color:#999;font-size:clamp(0.88rem,1vw,0.95rem)}
+.label{font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:#C99700;margin-bottom:12px}
+.spacer-80{height:80px}
+.spacer-120{height:120px}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background 0.4s,padding 0.4s;background:rgba(14,14,14,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+nav.scrolled{background:rgba(14,14,14,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.15rem;color:#EDE8D8;display:flex;align-items:center;gap:8px}
+.nav-logo em{font-style:normal;color:#C99700}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 14px;font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.65);border-radius:6px;transition:color 0.2s,background 0.2s}
+.nav-links a:hover{color:#EDE8D8;background:rgba(255,255,255,0.06)}
+.nav-order{padding:8px 20px;background:#C99700;color:#0E0E0E;border-radius:100px;font-size:0.82rem;font-weight:600;transition:background 0.2s,transform 0.2s}
+.nav-order:hover{background:#D4A800;transform:translateY(-1px)}
+.nav-lang{padding:6px 12px;border:1px solid rgba(255,255,255,0.12);border-radius:6px;font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.65);cursor:pointer;transition:color 0.2s,border-color 0.2s;background:none;font-family:inherit}
+.nav-lang:hover{color:#EDE8D8;border-color:rgba(255,255,255,0.25)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer;z-index:101}
+.hamburger span{display:block;width:22px;height:2px;background:#EDE8D8;border-radius:2px;transition:0.3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-nav{position:fixed;inset:0;z-index:99;background:#0E0E0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;transition:0.4s}
+.mobile-nav.open{opacity:1;visibility:visible}
+.mobile-nav a{font-family:'Inter Tight',sans-serif;font-size:1.8rem;font-weight:500;color:#EDE8D8;padding:12px 24px;transition:color 0.2s}
+.mobile-nav a:hover{color:#C99700}
+.mobile-nav .close{position:absolute;top:24px;right:28px;font-size:2.5rem;color:#888;cursor:pointer;line-height:1}
+
+/* Hero - atmospheric table setting */
+.hero{position:relative;width:100%;height:80vh;min-height:520px;overflow:hidden;display:flex;align-items:flex-end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,14,14,0.8) 0%,rgba(14,14,14,0.15) 50%,rgba(14,14,14,0.05) 80%)}
+.hero-content{position:relative;z-index:2;padding:60px 32px 64px;max-width:1320px;margin:0 auto;width:100%}
+.hero-content .badge{display:inline-block;padding:6px 14px;background:rgba(201,151,0,0.18);border:1px solid rgba(201,151,0,0.35);border-radius:4px;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#D4A800;margin-bottom:20px}
+.hero-content h1{max-width:600px;margin-bottom:16px}
+.hero-content p{max-width:440px;color:rgba(255,255,255,0.55);font-size:0.95rem;margin-bottom:28px;line-height:1.7}
+.hero-content .btn{padding:12px 28px;background:#C99700;color:#0E0E0E;border-radius:100px;font-weight:600;font-size:0.9rem;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.2s}
+.hero-content .btn:hover{background:#D4A800;transform:translateY(-1px)}
+.hero .scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.3);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em}
+
+/* Signature - featured dishes */
+.signature{background:#0E0E0E;border-top:1px solid rgba(255,255,255,0.04);padding:100px 0 60px}
+.sig-head{max-width:1320px;margin:0 auto;padding:0 32px 60px;text-align:center}
+.sig-head .label{color:#C99700;margin-bottom:12px}
+.sig-head .dish{font-family:'Inter Tight',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:#EDE8D8;line-height:1.1;letter-spacing:-0.02em;max-width:640px;margin:0 auto}
+.sig-head .sub{color:#888;font-size:0.95rem;line-height:1.7;margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto}
+.sig-hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1320px;margin:0 auto;padding:0 32px}
+.sig-hero+.sig-hero{margin-top:60px}
+.sig-hero .sh-text{display:flex;flex-direction:column;justify-content:center}
+.sig-hero .sh-label{font-size:0.7rem;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:#C99700;margin-bottom:12px}
+.sig-hero .sh-dish{font-family:'Inter Tight',sans-serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:700;color:#EDE8D8;line-height:1.05;letter-spacing:-0.02em}
+.sig-hero .sh-price{font-family:'Inter Tight',sans-serif;font-size:1.4rem;font-weight:600;color:#C99700;display:block;margin-top:10px}
+.sig-hero .sh-desc{max-width:480px;color:#888;font-size:0.95rem;line-height:1.7;margin-top:16px}
+.sig-hero .sh-sides{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.sig-hero .sh-sides span{font-size:0.68rem;color:#555;background:rgba(255,255,255,0.04);padding:3px 10px;border-radius:100px;border:1px solid rgba(255,255,255,0.04)}
+.sig-hero .sh-img{height:360px;border-radius:8px;background:rgba(255,255,255,0.01);border:1px dashed rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:#333;font-size:0.82rem;flex-direction:column;gap:6px;overflow:hidden}
+.sig-hero .sh-img img{width:100%;height:100%;object-fit:cover;border-radius:8px;border:none;background:none}
+.sig-hero .sh-img i{font-size:1.1rem;color:#2A2A2A}
+.sig-hero.rev .sh-text{order:1}
+.sig-hero.rev .sh-img{order:0}
+
+/* Editorial - Philosophy */
+.editorial{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+.editorial .ed-img{position:relative;overflow:hidden}
+.editorial .ed-img img{width:100%;height:100%;object-fit:cover;display:block}
+.editorial .ed-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.editorial .ed-text .label{margin-bottom:16px}
+.editorial .ed-text h2{margin-bottom:24px}
+.editorial .ed-text p{font-size:1rem;color:#888;margin-bottom:20px;line-height:1.75}
+.editorial .ed-text .sig{font-family:'Inter Tight',sans-serif;color:#C99700;font-size:1rem;margin-top:32px}
+.editorial .ed-text .sig i{font-style:normal;display:block;font-size:0.78rem;color:#666;margin-top:4px}
+
+/* Story - Journey */
+.story-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+.story-wrap .st-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.story-wrap .st-text::before{content:'';position:absolute;left:0;top:80px;bottom:80px;width:2px;background:linear-gradient(180deg,#C99700,transparent)}
+.story-wrap .st-text .label{margin-bottom:14px;padding-left:24px}
+.story-wrap .st-text h2{margin-bottom:20px;padding-left:24px}
+.story-wrap .st-text p{font-size:0.95rem;margin-bottom:20px;line-height:1.75;color:#888;padding-left:24px}
+.story-wrap .st-img{position:relative;overflow:hidden}
+.story-wrap .st-img img{width:100%;height:100%;object-fit:cover;display:block}
+.timeline{margin-top:36px;padding-left:24px}
+.timeline .row{display:flex;align-items:center;gap:14px;padding:10px 0}
+.timeline .row .dot{width:10px;height:10px;border-radius:100%;background:#C99700;flex-shrink:0;position:relative}
+.timeline .row .dot::after{content:'';position:absolute;top:10px;left:4px;width:2px;height:32px;background:rgba(201,151,0,0.15)}
+.timeline .row:last-child .dot::after{display:none}
+.timeline .row .year{font-family:'Inter Tight',sans-serif;font-weight:700;color:#EDE8D8;min-width:44px;font-size:0.9rem}
+.timeline .row .desc{font-size:0.88rem;color:#777}
+
+/* Gallery */
+.gallery-wrap{padding:0 16px}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.gallery-grid .item{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.06);border-radius:4px;min-height:220px;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+.gallery-grid .item:hover{background:rgba(255,255,255,0.04)}
+.gallery-grid .item .ph{display:flex;flex-direction:column;align-items:center;gap:6px;color:#444;font-size:0.72rem}
+.gallery-grid .item .ph i{font-size:1.2rem;color:#333}
+.item.tall{grid-row:span 2;min-height:448px}
+.item.wide{grid-column:span 2}
+
+/* Tandoor spread */
+.tandoor{background:#111;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);padding:100px 0}
+.tandoor .content{max-width:860px;margin:0 auto;padding:0 32px}
+.tandoor .content .label{color:#C99700;margin-bottom:12px}
+.tandoor .content h2{font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:12px}
+.tandoor .content p{max-width:500px;color:#888;font-size:0.95rem;line-height:1.7;margin-bottom:28px}
+.tandoor .content .menu-link{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#C99700;color:#0E0E0E;border-radius:100px;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.2s}
+.tandoor .content .menu-link:hover{background:#D4A800;transform:translateY(-1px)}
+
+/* Reviews */
+.reviews-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.r-card{padding:32px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:4px;transition:background 0.2s}
+.r-card:hover{background:#1A1A1A}
+.r-card .top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.r-card .avatar{width:36px;height:36px;border-radius:100%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.82rem;flex-shrink:0}
+.r-card .name{font-weight:600;font-size:0.9rem;color:#EDE8D8}
+.r-card .date{font-size:0.72rem;color:#555;margin-top:1px}
+.r-card .stars{color:#C99700;font-size:0.78rem;margin-left:auto;letter-spacing:1px}
+.r-card blockquote{font-size:0.9rem;line-height:1.6;color:#888}
+.r-card blockquote strong{color:#C99700;font-weight:500}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why-card{padding:36px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:4px;transition:background 0.2s,transform 0.2s}
+.why-card:hover{background:#1A1A1A;transform:translateY(-2px)}
+.why-card i{font-size:1.3rem;color:#C99700;margin-bottom:16px;display:block}
+.why-card h3{font-size:1rem;margin-bottom:10px}
+.why-card p{font-size:0.82rem;color:#777;line-height:1.6}
+
+/* Order */
+.order-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.3)}
+.order-strip>a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:44px 28px;background:#141414;transition:background 0.2s;text-align:center}
+.order-strip>a:hover{background:#1E1E1E}
+.order-strip i{font-size:1.8rem}
+.order-strip .lbl{font-weight:700;font-size:1.05rem;color:#EDE8D8;letter-spacing:-0.01em}
+.order-strip .sub{font-size:0.82rem;color:#666}
+.order-strip .cta{font-size:0.85rem;color:#C99700;font-weight:600;display:inline-flex;align-items:center;gap:4px}
+.phone-row{text-align:center;margin-top:24px}
+.phone-row p{font-size:0.85rem;color:#666;margin-bottom:4px}
+.phone-row a{font-family:'Inter Tight',sans-serif;font-size:1.6rem;font-weight:600;color:#C99700;display:inline-block;transition:color 0.2s}
+.phone-row a:hover{color:#D4A800}
+
+/* Location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+.loc .map-wrap{position:relative;min-height:520px;overflow:hidden}
+.loc .embed-map{position:absolute;inset:0}
+.loc .embed-map iframe{width:100%;height:100%;border:0;min-height:520px;filter:grayscale(0.6) brightness(0.55) contrast(1.15);transition:filter 0.6s}
+.loc .embed-map iframe:hover{filter:grayscale(0.4) brightness(0.7) contrast(1.1)}
+.loc .embed-map .map-darken{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,14,14,0.35),transparent 60%,rgba(14,14,14,0.1));pointer-events:none;z-index:1}
+.loc .map-card{position:absolute;top:28px;right:28px;z-index:10;background:rgba(20,20,20,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:22px 24px;min-width:240px;max-width:300px;box-shadow:0 16px 48px rgba(0,0,0,0.5)}
+.loc .map-card .mc-name{font-family:'Inter Tight',sans-serif;font-size:1.05rem;font-weight:700;color:#EDE8D8;margin-bottom:3px}
+.loc .map-card .mc-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(201,151,0,0.12);border:1px solid rgba(201,151,0,0.25);border-radius:6px;font-size:0.66rem;font-weight:600;color:#D4A800;margin-bottom:8px}
+.loc .map-card .mc-addr{font-size:0.78rem;color:#888;margin-bottom:8px;line-height:1.5}
+.loc .map-card .mc-addr i{color:#C99700;margin-right:5px;width:12px;text-align:center}
+.loc .map-card .mc-hours{display:flex;align-items:center;gap:8px;font-size:0.76rem;color:#999;margin-bottom:10px;padding:7px 10px;background:rgba(255,255,255,0.04);border-radius:8px}
+.loc .map-card .mc-hours i{color:#C99700;font-size:0.72rem}
+.loc .map-card .mc-hours .open{color:#4CAF50;font-weight:600}
+.loc .map-card .mc-hours .closed{color:#EF5350;font-weight:600}
+.loc .map-card .mc-rating{display:flex;align-items:center;gap:4px;margin-bottom:10px}
+.loc .map-card .mc-rating .stars{color:#C99700;font-size:0.7rem;letter-spacing:1px}
+.loc .map-card .mc-rating .count{font-size:0.72rem;color:#666;margin-left:4px}
+.loc .map-card .mc-info{position:relative;cursor:pointer;color:#C99700;margin-left:2px;font-size:0.75rem}
+.loc .map-card .mc-info .mc-tip{visibility:hidden;opacity:0;position:absolute;bottom:calc(100%+10px);left:50%;transform:translateX(-50%);background:#1A1A1A;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 12px;font-size:0.68rem;color:#AAA;line-height:1.5;transition:opacity 0.2s;z-index:20;pointer-events:none;width:220px;text-align:center}
+.loc .map-card .mc-info:hover .mc-tip,.loc .map-card .mc-info:active .mc-tip{visibility:visible;opacity:1}
+.loc .map-card .mc-actions{display:flex;gap:6px}
+.loc .map-card .mc-actions a{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px 12px;border-radius:8px;font-size:0.74rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.loc .map-card .mc-actions .mc-dir{background:#C99700;color:#0E0E0E}
+.loc .map-card .mc-actions .mc-dir:hover{background:#D4A800}
+.loc .map-card .mc-actions .mc-call{background:rgba(255,255,255,0.08);color:#EDE8D8;border:1px solid rgba(255,255,255,0.1)}
+.loc .map-card .mc-actions .mc-call:hover{background:rgba(255,255,255,0.12)}
+.loc .map-overlay{position:absolute;bottom:24px;left:24px;z-index:5;display:flex;gap:10px}
+.loc .map-overlay a{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:100px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.3s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.loc .map-overlay .dir-btn{background:rgba(201,151,0,0.9);color:#0E0E0E;border:1px solid rgba(201,151,0,0.5)}
+.loc .map-overlay .dir-btn:hover{background:#C99700;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,151,0,0.3)}
+.loc .map-overlay .street-btn{background:rgba(14,14,14,0.75);color:#EDE8D8;border:1px solid rgba(255,255,255,0.12)}
+.loc .map-overlay .street-btn:hover{background:rgba(30,30,30,0.9);border-color:rgba(255,255,255,0.25)}
+.loc .info{padding:64px;display:flex;flex-direction:column;justify-content:center}
+.loc .info h3{margin-bottom:20px}
+.loc .info .r{display:flex;gap:14px;margin-bottom:16px}
+.loc .info .r i{width:18px;color:#C99700;font-size:0.95rem;flex-shrink:0;margin-top:4px}
+.loc .info .r p{font-size:0.88rem;color:#888}
+
+/* Map marker pulse */
+.map-marker{position:absolute;bottom:50%;left:50%;z-index:4;transform:translate(-50%,0);pointer-events:none}
+.map-marker .marker-dot{position:relative;z-index:2;width:40px;height:40px;background:#C99700;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,151,0,0.4);border:3px solid #0E0E0E;margin:0 auto}
+.map-marker .marker-dot i{color:#0E0E0E;font-size:0.9rem}
+.map-marker .marker-pulse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(201,151,0,0.25);animation:markerPulse 2s ease-out infinite}
+.map-marker .marker-pulse-2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(201,151,0,0.15);animation:markerPulse 2s ease-out 0.5s infinite}
+@keyframes markerPulse{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(3);opacity:0}}
+.hours{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-bottom:20px}
+.hours .d{color:#888;font-size:0.82rem}
+.hours .t{color:#EDE8D8;font-size:0.82rem;text-align:right}
+.hours .n{grid-column:span 2;font-size:0.72rem;color:#555;font-style:italic;margin-top:2px}
+
+/* FAQ */
+.faq-wrap{max-width:680px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.06)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:0.95rem;font-weight:500;color:#EDE8D8;text-align:left;transition:color 0.2s}
+.faq-q:hover{color:#C99700}
+.faq-q i{font-size:0.78rem;color:#555;transition:transform 0.3s}
+.faq-item.active .faq-q i{transform:rotate(180deg);color:#C99700}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0}
+.faq-item.active .faq-a{max-height:300px;padding:0 0 18px}
+.faq-a p{font-size:0.88rem;color:#777;line-height:1.6}
+
+/* Footer */
+footer{padding:80px 0 40px;border-top:1px solid rgba(255,255,255,0.04)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer h4{font-size:0.85rem;color:#EDE8D8;margin-bottom:14px}
+footer a{display:block;font-size:0.82rem;color:#666;padding:3px 0;transition:color 0.2s}
+footer a:hover{color:#C99700}
+footer p{font-size:0.82rem;color:#666}
+.footer-social{display:flex;gap:14px;margin-top:14px}
+.footer-social a{font-size:1.05rem;padding:0}
+.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;font-size:0.75rem;color:#444}
+
+/* Floating bar */
+.floating-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(20,20,20,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.6);transition:transform 0.4s,opacity 0.4s;opacity:0;pointer-events:none}
+.floating-bar.show{opacity:1;pointer-events:auto}
+.floating-bar a{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;font-size:0.88rem;font-weight:600;transition:transform 0.2s,background 0.2s;white-space:nowrap}
+.floating-bar a:hover{transform:translateY(-1px);background:rgba(255,255,255,0.06)}
+.floating-bar .sep{width:1px;height:22px;background:rgba(255,255,255,0.08)}
+
+/* Back to top */
+.btt{position:fixed;bottom:80px;right:20px;z-index:89;width:36px;height:36px;border-radius:100%;background:#141414;border:1px solid rgba(255,255,255,0.06);color:#666;display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:opacity 0.3s;opacity:0;pointer-events:none;cursor:pointer}
+.btt.show{opacity:1;pointer-events:auto}
+.btt:hover{color:#C99700;border-color:rgba(201,151,0,0.2)}
+
+/* Progress */
+#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#C99700,#E85D04);z-index:9999;width:0%;transition:width 0.1s}
+
+/* Responsive */
+@media(max-width:1024px){
+  .loc{grid-template-columns:1fr}
+  .loc .map-wrap{min-height:350px}
+  .loc #map{min-height:350px}
+  .loc .info{padding:32px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links,.nav-order{display:none}
+  .hamburger{display:flex}
+  .hero{height:70vh;min-height:420px}
+  .signature,.tandoor{padding:80px 0}
+  .sig-head{padding:0 24px 40px}
+  .sig-hero{grid-template-columns:1fr;gap:0;padding:0 24px}
+  .sig-hero .sh-text{order:0!important;padding:24px 0 0}
+  .sig-hero .sh-img{height:220px;margin-top:20px}
+  .editorial{grid-template-columns:1fr}
+  .editorial .ed-text{padding:48px 24px}
+  .story-wrap{grid-template-columns:1fr}
+  .story-wrap .st-text{padding:48px 24px}
+  .story-wrap .st-text::before{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .item.tall{grid-row:span 1;min-height:180px}
+  .item.wide{grid-column:span 1}
+  .gallery-grid .item{min-height:160px}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .reviews-grid{grid-template-columns:1fr}
+  .order-strip{grid-template-columns:1fr}
+  .order-strip>a{padding:36px 20px}
+  .hours{grid-template-columns:1fr}
+  .hours .t{text-align:left}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:6px}
+  .floating-bar{gap:4px;padding:6px}
+  .floating-bar a{padding:8px 14px;font-size:0.8rem}
+  .floating-bar a span{display:none}
+  .loc .map-overlay{left:12px;bottom:12px;gap:6px}
+  .loc .map-overlay a{padding:10px 16px;font-size:0.75rem}
+  .info-window{min-width:220px;padding:18px}
+  .info-window .iw-name{font-size:0.95rem}
+  .info-window .iw-actions a{padding:8px 12px;font-size:0.72rem}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hero-content h1{font-size:clamp(1.6rem,8vw,2.4rem)}
+  .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px}
+  .floating-bar a{flex:1;justify-content:center;min-width:60px;padding:8px 10px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">786 <em>Halal</em> Restaurant</a>
+    <div class="nav-links">
+      <a href="#story" data-i18n="nav_story">Story</a>
+      <a href="#menu" data-i18n="nav_menu">Menu</a>
+      <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+      <a href="#reviews" data-i18n="nav_reviews">Reviews</a>
+      <a href="#order" data-i18n="nav_order">Order</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+    <a href="#order" class="nav-order" data-i18n="nav_order">Order online</a>
+    <button class="nav-lang" id="langToggle">FR</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="mobileClose" aria-label="Close">&times;</button>
+  <a href="#story" class="ml" data-i18n="nav_story">Story</a>
+  <a href="#menu" class="ml" data-i18n="nav_menu">Menu</a>
+  <a href="#gallery" class="ml" data-i18n="nav_gallery">Gallery</a>
+  <a href="#reviews" class="ml" data-i18n="nav_reviews">Reviews</a>
+  <a href="#order" class="ml" data-i18n="nav_order">Order</a>
+  <a href="#contact" class="ml" data-i18n="nav_contact">Contact</a>
+  <button class="ml mobile-lang" id="mobileLang" style="margin-top:16px;background:rgba(255,255,255,0.08);color:#EDE8D8;border:none;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer">FR</button>
+</div>
+
+<section class="hero">
+  <img src="assets/images/hero.png" alt="Table setting at 786 Halal Restaurant" loading="eager">
+  <div class="shade"></div>
+  <div class="hero-content">
+    <div class="badge" data-i18n="hero_badge">Montreal &middot; Since 2008</div>
+    <h1 data-i18n="hero_h1">Pakistani food,<br>as it should be.</h1>
+    <p data-i18n="hero_p">850 Jean-Talon Ouest. 100% Zabiha Halal. Family recipes passed through three generations.</p>
+    <a href="#order" class="btn"><i class="fas fa-truck"></i> <span data-i18n="hero_btn">Order online</span></a>
+  </div>
+  <div class="scroll-hint">
+    <i class="fas fa-chevron-down" style="font-size:0.7rem"></i>
+    <span data-i18n="hero_scroll">Scroll</span>
+  </div>
+</section>
+
+<section class="signature">
+  <div class="sig-head">
+    <div class="label" data-i18n="sig_label">Our menu</div>
+    <div class="dish" data-i18n="sig_dish">Crafted with tradition,<br>served with pride.</div>
+    <p class="sub" data-i18n="sig_sub">Every dish made to order with hand-ground spices and time-honoured techniques from three generations.</p>
+  </div>
+
+  <div class="sig-hero">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d1_cat">Rice</div>
+      <div class="sh-dish" data-i18n="d1_name">Chicken Biryani</div>
+      <p class="sh-desc" data-i18n="d1_desc">Fragrant basmati layered with spiced chicken, caramelised onions, saffron &mdash; slow-cooked in a sealed handi. Served with raita, salad &amp; lemon.</p>
+      <div class="sh-sides"><span data-i18n="sides_raita">Raita</span><span data-i18n="sides_salad">Salad</span><span data-i18n="sides_lemon">Lemon</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/chicken_biryani.png" alt="Chicken Biryani" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero rev">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d2_cat">Curry</div>
+      <div class="sh-dish" data-i18n="d2_name">Butter Chicken</div>
+      <p class="sh-desc" data-i18n="d2_desc">Tender tandoor chicken simmered in a rich tomato-cream sauce finished with fenugreek. Served with naan, rice &amp; salad.</p>
+      <div class="sh-sides"><span data-i18n="sides_naan">Naan</span><span data-i18n="sides_rice">Rice</span><span data-i18n="sides_salad">Salad</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/butter_chicken.png" alt="Butter Chicken" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d3_cat">Bread</div>
+      <div class="sh-dish" data-i18n="d3_name">Naan</div>
+      <p class="sh-desc" data-i18n="d3_desc">Fresh from the tandoor &mdash; soft, blistered, brushed with ghee. Plain, garlic, or butter.</p>
+    </div>
+    <div class="sh-img"><img src="assets/images/naan.png" alt="Naan" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero rev">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d4_cat">BBQ</div>
+      <div class="sh-dish" data-i18n="d4_name">Seekh Kabab Veal</div>
+      <p class="sh-desc" data-i18n="d4_desc">Minced veal seasoned with ginger, coriander, green chilli &mdash; charred over open flame. Served with fresh naan, salad, onion &amp; lemon.</p>
+      <div class="sh-sides"><span data-i18n="sides_naan">Naan</span><span data-i18n="sides_salad">Salad</span><span data-i18n="sides_onion">Onion</span><span data-i18n="sides_lemon">Lemon</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/seekh_kabab_veal.png" alt="Seekh Kabab Veal" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d5_cat">BBQ</div>
+      <div class="sh-dish" data-i18n="d5_name">Chapli Kabab</div>
+      <p class="sh-desc" data-i18n="d5_desc">Peshawari-style spiced minced patty, pan-fried crisp with tomato and pomegranate seed tang. Served with fresh naan, salad, onion &amp; lemon.</p>
+      <div class="sh-sides"><span data-i18n="sides_naan">Naan</span><span data-i18n="sides_salad">Salad</span><span data-i18n="sides_onion">Onion</span><span data-i18n="sides_lemon">Lemon</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/chapli_kabab.png" alt="Chapli Kabab" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero rev">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d6_cat">Vegetarian</div>
+      <div class="sh-dish" data-i18n="d6_name">Palak Paneer</div>
+      <p class="sh-desc" data-i18n="d6_desc">Silky spinach pur&eacute;e with house-made Indian cottage cheese, tempered with cumin and garlic. Served with naan, rice &amp; salad.</p>
+      <div class="sh-sides"><span data-i18n="sides_naan">Naan</span><span data-i18n="sides_rice">Rice</span><span data-i18n="sides_salad">Salad</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/palak_paneer.png" alt="Palak Paneer" loading="lazy"></div>
+  </div>
+
+  <div class="sig-hero">
+    <div class="sh-text">
+      <div class="sh-label" data-i18n="d7_cat">BBQ</div>
+      <div class="sh-dish" data-i18n="d7_name">Chargha (Half Chicken)</div>
+      <p class="sh-desc" data-i18n="d7_desc">Whole spring chicken marinated in a 24-hour spice blend, steam-roasted then flash-fried for a crackling finish. Served with salad, onion &amp; lemon.</p>
+      <div class="sh-sides"><span data-i18n="sides_salad">Salad</span><span data-i18n="sides_onion">Onion</span><span data-i18n="sides_lemon">Lemon</span></div>
+    </div>
+    <div class="sh-img"><img src="assets/images/chargha.png" alt="Chargha" loading="lazy"></div>
+  </div>
+</section>
+
+<div class="editorial">
+  <div class="ed-img"><img src="assets/images/the-philosophy.png" alt="786 Halal Restaurant philosophy" loading="lazy"></div>
+  <div class="ed-text">
+    <div class="label" data-i18n="ed_label">The philosophy</div>
+    <h2 data-i18n="ed_h2">What makes a dish worth travelling for</h2>
+    <p data-i18n="ed_p1">786 Halal Restaurant began as a small takeout counter in 2008. The Khan family brought their recipes from Lahore &mdash; passed down through three generations &mdash; and opened on Rue Jean-Talon Ouest. What started as a neighbourhood spot grew into a gathering place for Montreal&rsquo;s Pakistani community and beyond.</p>
+    <p data-i18n="ed_p2">Our tandoor has been lit every single day since we opened. Our spice blends are made by hand in small batches. We source from local Quebec suppliers whenever possible. We are 100% Zabiha Halal. And we still treat every guest like they are sitting in our family home.</p>
+    <div class="sig">&mdash; <span data-i18n="ed_sig">The Khan family</span> <i data-i18n="ed_sig2">Proprietors, 786 Halal Restaurant</i></div>
+  </div>
+</div>
+
+<section id="story" style="padding:0">
+  <div class="story-wrap">
+    <div class="st-text">
+      <div class="label" data-i18n="st_label">Our journey</div>
+      <h2 data-i18n="st_h2">From Lahore to Jean-Talon</h2>
+      <p data-i18n="st_p1">Every dish at 786 carries a story. Our recipes come from three generations of home cooks who believed that food should bring people together.</p>
+      <p data-i18n="st_p2">When we opened our doors in 2008, we brought those recipes with us. The same hand-ground spices. The same slow-cooking techniques. The same warmth.</p>
+      <p data-i18n="st_p3">Today, our kitchen is helmed by chefs trained in the culinary capitals of Pakistan. But the heart of our cooking remains the same: simple ingredients, treated with respect, cooked with patience.</p>
+      <div class="timeline">
+        <div class="row"><div class="dot"></div><span class="year">2008</span><span class="desc" data-i18n="tl_2008">Opened on Jean-Talon</span></div>
+        <div class="row"><div class="dot"></div><span class="year">2012</span><span class="desc" data-i18n="tl_2012">Expanded kitchen &amp; dining</span></div>
+        <div class="row"><div class="dot"></div><span class="year">2015</span><span class="desc" data-i18n="tl_2015">Became a Montreal staple</span></div>
+        <div class="row"><div class="dot"></div><span class="year">2024</span><span class="desc" data-i18n="tl_2024">500+ five-star reviews</span></div>
+      </div>
+    </div>
+    <div class="st-img"><img src="assets/images/lahore_to_montreal.png" alt="From Lahore to Montreal" loading="lazy"></div>
+  </div>
+</section>
+
+<section id="gallery" style="padding:120px 0 80px">
+  <div style="max-width:1320px;margin:0 auto;padding:0 24px 40px">
+    <div class="label" data-i18n="gal_label">Moments</div>
+    <h2 data-i18n="gal_h2">From our kitchen to your table</h2>
+  </div>
+  <div class="gallery-wrap">
+    <div class="gallery-grid">
+      <div class="item tall"><span class="ph"><i class="fas fa-image"></i></span></div>
+      <div class="item"><span class="ph"><i class="fas fa-image"></i></span></div>
+      <div class="item"><span class="ph"><i class="fas fa-image"></i></span></div>
+      <div class="item"><span class="ph"><i class="fas fa-image"></i></span></div>
+      <div class="item tall"><span class="ph"><i class="fas fa-image"></i></span></div>
+      <div class="item wide"><span class="ph"><i class="fas fa-image"></i></span></div>
+    </div>
+  </div>
+</section>
+<section class="tandoor" id="menu">
+  <div class="content">
+    <div class="label" data-i18n="td_label">From the tandoor</div>
+    <h2 data-i18n="td_h2">Naan, seekh &amp; beyond</h2>
+    <p data-i18n="td_p">Our clay oven has been burning daily since 2008. Fresh naan, charred seekh kebabs, paneer tikka &mdash; made to order, served with house chutneys.</p>
+    <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener" class="menu-link"><i class="fas fa-external-link-alt"></i> <span data-i18n="td_link">View full menu</span></a>
+  </div>
+</section>
+
+<section style="padding:120px 0" id="reviews">
+  <div class="reviews-wrap" style="margin-bottom:48px;padding:0 24px">
+    <div class="label" data-i18n="rv_label">From our guests</div>
+    <h2 data-i18n="rv_h2">Why people keep coming back</h2>
+  </div>
+  <div class="reviews-wrap">
+    <div class="reviews-grid">
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1E2A10">AA</div>
+          <div><div class="name">Ali A.</div><div class="date">Google &middot; <span data-i18n="rv_d1">2 weeks ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q1">&ldquo;The <strong>Chicken Chargha</strong> is the best I've had outside Lahore. Crispy, perfectly spiced, incredible masala. A hidden Montreal gem.&rdquo;</blockquote>
+      </div>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#2A1A1A">SK</div>
+          <div><div class="name">Sara K.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d2">Last week</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q2">&ldquo;Ordered the <strong>Beef Nihari</strong> for the first time &ndash; absolutely incredible depth of flavour. The naan arrived fresh even through delivery. So impressed.&rdquo;</blockquote>
+      </div>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1A1A2E">MR</div>
+          <div><div class="name">Mohammad R.</div><div class="date">Google &middot; <span data-i18n="rv_d3">3 weeks ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q3">&ldquo;The <strong>Chicken Biryani</strong> is out of this world. Generous portions, amazing aroma, great service. You can taste the tradition in every bite.&rdquo;</blockquote>
+      </div>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1A2E22">FT</div>
+          <div><div class="name">Fatima T.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d4">5 days ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q4">&ldquo;Best halal restaurant in Montreal. The <strong>Lamb Karahi</strong> is perfection &ndash; tender, rich, and beautifully spiced. And the garlic naan is always on point.&rdquo;</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:120px 0;background:#111">
+  <div class="container">
+    <div style="margin-bottom:48px">
+      <div class="label" data-i18n="wh_label">Why 786</div>
+      <h2 data-i18n="wh_h2">What sets us apart</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="fas fa-mosque"></i>
+        <h3 data-i18n="wh1_h">Zabiha Halal</h3>
+        <p data-i18n="wh1_p">100% Zabiha Halal chicken, lamb, beef. We source from certified suppliers and our kitchen is fully Halal compliant.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-mortar-pestle"></i>
+        <h3 data-i18n="wh2_h">Hand-ground spices</h3>
+        <p data-i18n="wh2_p">Every spice blend is made in-house, in small batches. No shortcuts, no pre-mixes. The way it was always done.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-fire"></i>
+        <h3 data-i18n="wh3_h">Traditional tandoor</h3>
+        <p data-i18n="wh3_p">Our clay oven has been lit daily since 2008. Fresh naan, kebabs, and tikka made to order &mdash; every single time.</p>
+      </div>
+      <div class="why-card">
+        <i class="fas fa-house-chimney"></i>
+        <h3 data-i18n="wh4_h">Family owned</h3>
+        <p data-i18n="wh4_p">The Khan family has been serving Montreal since 2008. Three generations, one kitchen, one neighbourhood.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:120px 0;background:#0E0E0E" id="order">
+  <div class="container" style="max-width:720px">
+    <div class="label" style="text-align:center" data-i18n="or_label">Order now</div>
+    <h2 style="text-align:center;margin-bottom:40px" data-i18n="or_h2">Get 786 delivered or pick up</h2>
+    <div class="order-strip">
+      <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener">
+        <i class="fab fa-ubereats" style="color:#5FB709"></i>
+        <div class="lbl">Uber Eats</div>
+        <div class="sub" data-i18n="or_sub">Delivery &bull; Pickup</div>
+        <div class="cta" data-i18n="or_cta">Order now &rarr;</div>
+      </a>
+      <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener">
+        <i class="fab fa-doordash" style="color:#FF3008"></i>
+        <div class="lbl">DoorDash</div>
+        <div class="sub" data-i18n="or_sub">Delivery &bull; Pickup</div>
+        <div class="cta" data-i18n="or_cta">Order now &rarr;</div>
+      </a>
+      <a href="https://order.online/store/786-halal-restaurant-montr%C3%A9al-644832" target="_blank" rel="noopener">
+        <i class="fas fa-globe" style="color:#C99700"></i>
+        <div class="lbl" data-i18n="or_online">Online Order</div>
+        <div class="sub" data-i18n="or_direct">Direct pickup</div>
+        <div class="cta" data-i18n="or_cta">Order now &rarr;</div>
+      </a>
+    </div>
+    <div class="phone-row">
+      <p data-i18n="or_phone">Or call to place your order</p>
+      <a href="tel:+15142700786">(514) 270-0786</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="loc">
+  <div class="map-wrap">
+    <div class="embed-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.85!2d-73.6303!3d45.5255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc919c1f9c9c9c9%3A0x0!2s786+Halal+Restaurant!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy" title="786 Halal Restaurant map"></iframe>
+      <div class="map-darken"></div>
+    </div>
+    <!-- Premium info card overlay -->
+    <div class="map-card">
+      <div class="mc-badge"><i class="fas fa-mosque"></i> 100% Zabiha Halal</div>
+      <div class="mc-name">786 Halal Restaurant</div>
+      <div class="mc-addr"><i class="fas fa-location-dot"></i> 850 Rue Jean-Talon Ouest, Montréal, QC</div>
+      <div class="mc-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="count">4.2 &middot; 4,200+ reviews <span class="mc-info"><i class="fas fa-info-circle"></i><span class="mc-tip">Average across Google (3.9 / 1,700+), Uber Eats (4.5 / 2,000+), DoorDash (4.3 / 500+)</span></span></span></div>
+      <div class="mc-hours" id="mcHours"><i class="fas fa-clock"></i><span id="mcStatus"></span></div>
+      <div class="mc-actions">
+        <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" class="mc-dir"><i class="fas fa-diamond-turn-right"></i> <span data-i18n="loc_directions">Get directions</span></a>
+        <a href="tel:+15142700786" class="mc-call"><i class="fas fa-phone"></i> Call</a>
+      </div>
+    </div>
+    <!-- Animated marker -->
+    <div class="map-marker">
+      <div class="marker-pulse"></div>
+      <div class="marker-pulse-2"></div>
+      <div class="marker-dot"><i class="fas fa-utensils"></i></div>
+    </div>
+    <div class="map-overlay">
+      <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" class="dir-btn"><i class="fas fa-diamond-turn-right"></i> <span data-i18n="loc_directions">Get directions</span></a>
+      <a href="https://www.google.com/maps/place/786+Halal+Restaurant/@45.5255,-73.6279,3a,75y,13.1h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i13312!8i6656" target="_blank" rel="noopener" class="street-btn"><i class="fas fa-street-view"></i> Street View</a>
+    </div>
+  </div>
+  <div class="info">
+    <h3 data-i18n="loc_h2">Visit us</h3>
+    <div class="r">
+      <i class="fas fa-location-dot"></i>
+      <p>850 Rue Jean-Talon Ouest<br>Montréal, QC H3N 1S4</p>
+    </div>
+    <div class="r">
+      <i class="fas fa-phone"></i>
+      <p><a href="tel:+15142700786" style="color:#C99700">(514) 270-0786</a></p>
+    </div>
+    <div class="r">
+      <i class="fas fa-envelope"></i>
+      <p><a href="mailto:info@786halalrestaurant.com" style="color:#C99700">info@786halalrestaurant.com</a></p>
+    </div>
+    <div class="r" style="margin-top:10px">
+      <i class="fas fa-clock"></i>
+      <div class="hours">
+        <span class="d">Mon &ndash; Thu</span><span class="t">11AM &ndash; 9PM</span>
+        <span class="d">Friday</span><span class="t">11AM &ndash; 1PM &bull; 2 &ndash; 9PM</span>
+        <span class="d">Saturday</span><span class="t">11AM &ndash; 9PM</span>
+        <span class="d">Sunday</span><span class="t">11AM &ndash; 9PM</span>
+        <span class="n">Closed Fri 1&ndash;2PM for Jummah prayers</span>
+      </div>
+    </div>
+    <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#C99700;color:#0E0E0E;border-radius:100px;font-size:0.82rem;font-weight:600;width:fit-content;transition:background 0.2s"><i class="fas fa-map-pin"></i> <span data-i18n="loc_directions">Get directions</span></a>
+  </div>
+</section>
+
+<script>
+(function(){var n=new Date(),h=n.getHours(),d=n.getDay(),o=!(h<11||h>=21)&&!(d===5&&h>=13&&h<14),s=o?'Open now · Mon–Sun 11AM–9PM':(d===5&&h>=13?'Closed for Jummah · 2PM–9PM today':'Opens at 11 AM · Mon–Sun 11AM–9PM'),el=document.getElementById('mcStatus');if(el){el.textContent=s;el.className=o?'open':'closed';}})();
+</script>
+
+<section style="padding:120px 0" id="faq">
+  <div class="faq-wrap">
+    <div class="label" style="text-align:center" data-i18n="faq_label">FAQs</div>
+    <h2 style="text-align:center;margin-bottom:36px" data-i18n="faq_h2">Common questions</h2>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q1">Is the meat 100% Halal?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a1">Yes. We are a 100% Zabiha Halal restaurant. Our chicken, lamb, and beef are sourced from certified Halal suppliers. Our kitchen is fully Halal compliant.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q2">Do you offer delivery?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a2">Yes. We deliver through Uber Eats and DoorDash. You can also order directly for pickup through our online ordering system linked above.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q3">Do you have vegetarian options?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a3">Absolutely. We offer a variety of vegetarian dishes including Daal Makhni, Baingan Bharta, Paneer Tikka, Aloo Gobi, and vegetable biryani.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q4">Can I host a catering event?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a4">Yes! We cater for events of all sizes. Contact us at (514) 270-0786 or email info@786halalrestaurant.com and we will put together a custom menu for your event.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q5">What are your hours on Friday?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a5">We are open 11AM &ndash; 1PM and 2PM &ndash; 9PM on Fridays. We close briefly between 1PM and 2PM for Jummah prayers. Regular hours all other days 11AM &ndash; 9PM.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-i18n="faq_q6">Where are you located?</span> <i class="fas fa-chevron-down"></i></button>
+      <div class="faq-a"><p data-i18n="faq_a6">We are at 850 Rue Jean-Talon Ouest, Montreal, QC H3N 1S4. Near the corner of Jean-Talon and Bloomfield, steps from the Jean-Talon metro. Ample street parking available.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.1rem;color:#EDE8D8;margin-bottom:12px">786 <span style="color:#C99700">Halal</span> Restaurant</div>
+        <p data-i18n="ft_tagline">Pakistani cuisine in Montreal. 100% Zabiha Halal. Family owned, family run.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/786halalrestaurant/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/786HalalRestaurant/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="ft_order">Order</h4>
+        <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener">Uber Eats</a>
+        <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener">DoorDash</a>
+        <a href="https://order.online/store/786-halal-restaurant-montr%C3%A9al-644832" target="_blank" rel="noopener" data-i18n="ft_online">Online Order</a>
+      </div>
+      <div>
+        <h4 data-i18n="ft_links">Links</h4>
+        <a href="#story" data-i18n="ft_story">Our story</a>
+        <a href="#menu" data-i18n="ft_menu">Menu</a>
+        <a href="#gallery" data-i18n="ft_gallery">Gallery</a>
+        <a href="#reviews" data-i18n="ft_reviews">Reviews</a>
+      </div>
+      <div>
+        <h4 data-i18n="ft_contact">Contact</h4>
+        <p>850 Rue Jean-Talon Ouest</p>
+        <p>Montréal, QC H3N 1S4</p>
+        <p style="margin-top:6px"><a href="tel:+15142700786" style="color:#C99700">(514) 270-0786</a></p>
+        <p><a href="mailto:info@786halalrestaurant.com" style="color:#C99700">info@786halalrestaurant.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="ft_copy">&copy; 2026 786 Halal Restaurant &mdash; All rights reserved</span>
+      <span data-i18n="ft_since">Built with tradition since 2008</span>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-bar show" id="floatingBar">
+  <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener" style="color:#5FB709"><i class="fab fa-ubereats"></i><span>Uber Eats</span></a>
+  <div class="sep"></div>
+  <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener" style="color:#FF3008"><i class="fab fa-doordash"></i><span>DoorDash</span></a>
+  <div class="sep"></div>
+  <a href="https://order.online/store/786-halal-restaurant-montr%C3%A9al-644832" target="_blank" rel="noopener" style="color:#EDE8D8"><i class="fas fa-globe"></i><span data-i18n="bar_pickup">Pickup</span></a>
+  <div class="sep"></div>
+  <a href="tel:+15142700786" style="color:#C99700"><i class="fas fa-phone"></i><span data-i18n="bar_call">Call</span></a>
+</div>
+
+<button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+try{
+gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
+
+gsap.from('.hero-content',{duration:1.2,y:60,opacity:0,ease:'power3.out'});
+gsap.from('.hero img',{duration:1.8,scale:1.08,ease:'power2.out'});
+gsap.from('.scroll-hint',{duration:1.5,y:-20,opacity:0,delay:0.8});
+
+function animateIn(sel,fromVars){
+  document.querySelectorAll(sel).forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight+100)gsap.from(el,{...fromVars,clearProps:'all'});
+    else{
+      ScrollTrigger.create({trigger:el,start:'top 85%',onEnter:()=>{gsap.from(el,{...fromVars,clearProps:'all'});ScrollTrigger.getById(el.id)?.kill()}});
+    }
+  });
+}
+
+document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-grid,.why-grid,.order-strip,.loc .info,.gallery-grid').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
+
+ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-grid,.why-grid,.order-strip,.loc .info,.gallery-grid',{
+  start:'top 87%',
+  once:true,
+  onEnter:batch=>gsap.to(batch,{opacity:1,y:0,duration:0.9,stagger:0.15,ease:'power3.out'})
+});
+
+ScrollTrigger.batch('.r-card,.why-card,.gallery-grid .item',{
+  start:'top 88%',
+  once:true,
+  onEnter:batch=>gsap.to(batch,{opacity:1,y:0,scale:1,duration:0.8,stagger:0.06,ease:'power2.out'})
+});
+document.querySelectorAll('.r-card,.why-card,.gallery-grid .item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.scale='0.98'});
+}catch(e){console.warn('GSAP init skipped:',e)}
+
+// Mobile nav
+const hamburger=document.getElementById('hamburger');
+const mobileNav=document.getElementById('mobileNav');
+const mobileClose=document.getElementById('mobileClose');
+function toggleMobile(){hamburger.classList.toggle('active');mobileNav.classList.toggle('open');}
+hamburger.addEventListener('click',toggleMobile);
+mobileClose.addEventListener('click',toggleMobile);
+document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',toggleMobile));
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('nav');
+  const btt=document.getElementById('btt');
+  const y=window.scrollY;
+  nav.classList.toggle('scrolled',y>80);
+  btt.classList.toggle('show',y>600);
+});
+
+// Scroll to #order
+document.querySelectorAll('a[href="#order"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.getElementById('order');
+    if(!target)return;
+    const y=target.getBoundingClientRect().top+window.pageYOffset-80;
+    if(typeof gsap!=='undefined'&&gsap.to){
+      gsap.to(window,{duration:1.4,scrollTo:{y:y},ease:'power3.inOut'});
+    }else{
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
+  });
+});
+
+// BTT
+document.getElementById('btt').addEventListener('click',()=>{
+  if(typeof gsap!=='undefined'&&gsap.to){
+    gsap.to(window,{duration:1.2,scrollTo:{y:0},ease:'power3.inOut'});
+  }else{
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+});
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const isOpen=item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('active'));
+    if(!isOpen)item.classList.add('active');
+  });
+});
+
+// Progress
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('progress').style.width=(window.scrollY/h*100)+'%';
+});
+
+// ── i18n ──────────────────────────────────────────────────────────────────────
+const translations={
+  // Nav
+  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_reviews:"Avis",nav_order:"Commander en ligne",nav_contact:"Contact",
+  // Hero
+  hero_badge:"Montréal · Depuis 2008",hero_h1:"La nourriture pakistanaise,<br>telle qu'elle devrait être.",
+  hero_p:"850 Jean-Talon Ouest. 100% Zabiha Halal. Recettes familiales transmises depuis trois générations.",
+  hero_btn:"Commander en ligne",hero_scroll:"Défiler",
+  // Signature
+  sig_label:"Notre menu",sig_dish:"Préparé avec tradition,<br>servi avec fierté.",
+  sig_sub:"Chaque plat préparé sur commande avec des épices moulues à la main et des techniques transmises depuis trois générations.",
+  // Dishes
+  d1_cat:"Riz",d1_name:"Biryani au poulet",d1_desc:"Basmati parfumé superposé avec du poulet épicé, des oignons caramélisés, du safran — cuisson lente dans un handi scellé. Servi avec raita, salade et citron.",
+  d2_cat:"Curry",d2_name:"Poulet au beurre",d2_desc:"Poulet tendu du tandoor mijoté dans une riche sauce tomate-crème terminée au fenugrec. Servi avec naan, riz et salade.",
+  d3_cat:"Pain",d3_name:"Naan",d3_desc:"Fraîchement sorti du tandoor — moelleux, cloqué, badigeonné de beurre clarifié. Nature, à l'ail ou au beurre.",
+  d4_cat:"BBQ",d4_name:"Seekh Kabab de veau",d4_desc:"Veau haché assaisonné au gingembre, coriandre et piment vert — grillé à la flamme. Servi avec naan frais, salade, oignon et citron.",
+  d5_cat:"BBQ",d5_name:"Chapli Kabab",d5_desc:"Galette épicée à la peshawari, friée croustillante avec tomate et tangue de graine de grenade. Servie avec naan frais, salade, oignon et citron.",
+  d6_cat:"Végétarien",d6_name:"Palak Paneer",d6_desc:"Purée de spinach soyeuse avec fromage cottage maison, tempéré au cumin et à l'ail. Servi avec naan, riz et salade.",
+  d7_cat:"BBQ",d7_name:"Chargha (demi-poulet)",d7_desc:"Poulet entier mariné pendant 24 heures, rôti à la vapeur puis frit rapidement pour une peau croustillante. Servi avec salade, oignon et citron.",
+  sides_raita:"Raita",sides_salad:"Salade",sides_lemon:"Citron",sides_naan:"Naan",sides_rice:"Riz",sides_onion:"Oignon",
+  // Editorial
+  ed_label:"La philosophie",ed_h2:"Ce qui fait qu'un plat vaut le déplacement",
+  ed_p1:"786 Halal Restaurant a commencé comme un petit comptoir à emporter en 2008. La famille Khan a apporté ses recettes de Lahore — transmises depuis trois générations — et a ouvert sur la rue Jean-Talon Ouest. Ce qui a commencé comme un spot de quartier est devenu un lieu de rassemblement pour la communauté pakistanaise de Montréal et au-delà.",
+  ed_p2:"Notre tandoor a été allumé tous les jours depuis notre ouverture. Nos mélanges d'épices sont faits à la main en petits lots. Nous sourcedons auprès de fournisseurs locaux du Québec quand c'est possible. Nous sommes 100% Zabiha Halal. Et nous traitons encore chaque client comme s'il était assis dans notre maison familiale.",
+  ed_sig:"— La famille Khan",ed_sig2:"Propriétaires, 786 Halal Restaurant",
+  // Story
+  st_label:"Notre parcours",st_h2:"De Lahore à Jean-Talon",
+  st_p1:"Chaque plat de 786 raconte une histoire. Nos recettes viennent de trois générations de cuisiniers maison qui croyaient que la nourriture devrait rassembler les gens.",
+  st_p2:"Quand nous avons ouvert nos portes en 2008, nous avons apporté ces recettes avec nous. Les mêmes épices moulues à la main. Les mêmes techniques de cuisson lente. La même chaleur.",
+  st_p3:"Aujourd'hui, notre cuisine est dirigée par des chefs formés dans les capitales culinaires du Pakistan. Mais le cœur de notre cuisine reste le même: des ingrédients simples, traités avec respect, cuisinés avec patience.",
+  tl_2008:"Ouverture sur Jean-Talon",tl_2012:"Expansion cuisine et salle",tl_2015:"Devenu un incontournable à Montréal",tl_2024:"Plus de 500 avis de 5 étoiles",
+  // Gallery
+  gal_label:"Moments",gal_h2:"De notre cuisine à votre table",
+  // Tandoor
+  td_label:"Du tandoor",td_h2:"Naan, seekh et au-delà",
+  td_p:"Notre four à argile brûle tous les jours depuis 2008. Naan frais, seekh kebabs grillés, paneer tikka — préparés sur commande, servis avec chutneys maison.",
+  td_link:"Voir le menu complet",
+  // Reviews
+  rv_label:"De nos clients",rv_h2:"Pourquoi les gens reviennent",
+  rv_d1:"il y a 2 semaines",rv_d2:"la semaine dernière",rv_d3:"il y a 3 semaines",rv_d4:"il y a 5 jours",
+  rv_q1:"«Le Chargha au poulet est le meilleur que j'ai eu en dehors de Lahore. Croustillant, parfaitement épicé, incroyable masala. Un bijou caché à Montréal.»",
+  rv_q2:"«J'ai commandé le Nihari de bœuf pour la première fois — une profondeur de saveur absolument incroyable. Le naan est arrivé frais même en livraison. Super impressionnée.»",
+  rv_q3:"«Le Biryani au poulet est extraordinaire. Portions généreuses, arôme incroyable, excellent service. On goûte la tradition à chaque bouchée.»",
+  rv_q4:"«Meilleur restaurant halal à Montréal. Le Lamb Karahi est parfait — tendre, riche et merveilleusement épicé. Et le naan à l'ail est toujours au point.»",
+  // Why
+  wh_label:"Pourquoi 786",wh_h2:"Ce qui nous distingue",
+  wh1_h:"Halal Zabiha",wh1_p:"Poulet, agneau et bœuf 100% Zabiha Halal. Nous nous fournissons auprès de fournisseurs certifiés et notre cuisine est entièrement conforme au Halal.",
+  wh2_h:"Épices moulues à la main",wh2_p:"Chaque mélange d'épices est fait en cuisine, en petits lots. Pas de raccourcis, pas de mélanges prêts. Comme on faisait avant.",
+  wh3_h:"Tandoor traditionnel",wh3_p:"Notre four à argile est allumé tous les jours depuis 2008. Naan frais, kebabs et tikka préparés sur commande — à chaque fois.",
+  wh4_h:"Entreprise familiale",wh4_p:"La famille Khan sert Montréal depuis 2008. Trois générations, une cuisine, un quartier.",
+  // Order
+  or_label:"Commander",or_h2:"Obtenez 786 livré ou à emporter",
+  or_sub:"Livraison • À emporter",or_cta:"Commander →",or_online:"Commande en ligne",or_direct:"À emporter directement",
+  or_phone:"Ou appelez pour commander",
+  // Location
+  loc_h2:"Rendez-nous visite",loc_directions:"Obtenir les directions",
+  // FAQ
+  faq_label:"Questions",faq_h2:"Questions fréquentes",
+  faq_q1:"La viande est-elle 100% Halal ?",faq_a1:"Oui. Nous sommes un restaurant 100% Zabiha Halal. Notre poulet, agneau et bœuf proviennent de fournisseurs Halal certifiés. Notre cuisine est entièrement conforme au Halal.",
+  faq_q2:"Livrez-vous ?",faq_a2:"Oui. Nous livrons via Uber Eats et DoorDash. Vous pouvez aussi commander directement à emporter via notre système de commande en ligne ci-dessus.",
+  faq_q3:"Avez-vous des options végétariennes ?",faq_a3:"Absolument. Nous offrons une variété de plats végétariens dont Daal Makhni, Baingan Bharta, Paneer Tikka, Aloo Gobi et biryani végétal.",
+  faq_q4:"Puis-je organiser un événement de traiteur ?",faq_a4:"Oui! Nous caterons pour des événements de toutes tailles. Contactez-nous au (514) 270-0786 ou envoyez un courriel à info@786halalrestaurant.com et nous préparerons un menu personnalisé pour votre événement.",
+  faq_q5:"Quelles sont vos heures le vendredi ?",faq_a5:"Nous sommes ouverts de 11h à 13h et de 14h à 21h le vendredi. Nous fermons brièvement entre 13h et 14h pour la prière de Jummah. Heures régulières tous les autres jours de 11h à 21h.",
+  faq_q6:"Où êtes-vous situés ?",faq_a6:"Nous sommes au 850 rue Jean-Talon Ouest, Montréal, QC H3N 1S4. Près du coin de Jean-Talon et Bloomfield, à quelques pas du métro Jean-Talon. Stationnement de rue abondant.",
+  // Footer
+  ft_tagline:"Cuisine pakistanaise à Montréal. 100% Zabiha Halal. Entreprise familiale.",
+  ft_order:"Commander",ft_online:"Commande en ligne",ft_links:"Liens",ft_story:"Notre histoire",ft_menu:"Menu",ft_gallery:"Galerie",ft_reviews:"Avis",ft_contact:"Contact",
+  ft_copy:"© 2026 786 Halal Restaurant — Tous droits réservés",ft_since:"Fait avec tradition depuis 2008",
+  // Floating bar
+  bar_pickup:"À emporter",bar_call:"Appeler"
+};
+
+// Store original English text from the DOM on page load
+const origText={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{
+  origText[el.getAttribute('data-i18n')]=el.innerHTML;
+});
+
+let currentLang=localStorage.getItem('lang')||null;
+
+function applyLang(lang){
+  document.documentElement.setAttribute('lang',lang);
+  const btn=document.getElementById('langToggle');
+  if(btn)btn.textContent=lang==='fr'?'EN':'FR';
+  const mb=document.getElementById('mobileLang');
+  if(mb)mb.textContent=lang==='fr'?'EN':'FR';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n');
+    if(lang==='fr'&&translations[key]){
+      el.innerHTML=translations[key];
+    }else if(lang==='en'&&origText[key]){
+      el.innerHTML=origText[key];
+    }
+  });
+}
+
+function detectLang(){
+  if(currentLang)return currentLang;
+  const nav=(navigator.language||navigator.userLanguage||'').toLowerCase();
+  return nav.startsWith('fr')?'fr':'en';
+}
+
+function setLanguage(lang){
+  currentLang=lang;
+  localStorage.setItem('lang',lang);
+  applyLang(lang);
+}
+
+setLanguage(detectLang());
+
+document.getElementById('langToggle').addEventListener('click',()=>{
+  setLanguage(currentLang==='fr'?'en':'fr');
+});
+
+const mobileLangBtn=document.getElementById('mobileLang');
+if(mobileLangBtn){
+  mobileLangBtn.addEventListener('click',()=>{
+    setLanguage(currentLang==='fr'?'en':'fr');
+  });
+}
+</script>
+</body>
+</html>

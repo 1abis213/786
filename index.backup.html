@@ -250,14 +250,10 @@ footer p{font-size:0.82rem;color:#666}
 .footer-social{display:flex;gap:14px;margin-top:14px}
 .footer-social a{font-size:1.05rem;padding:0}
 .footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;font-size:0.75rem;color:#444}
-.bisweb-bar{text-align:center;font-size:0.7rem;color:#444;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.03)}
-.bisweb-bar a{color:#666;text-decoration:none;transition:color 0.2s}
-.bisweb-bar a:hover{color:#C99700}
 
 /* Floating bar */
 .floating-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(20,20,20,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.6);transition:transform 0.4s,opacity 0.4s;opacity:0;pointer-events:none}
 .floating-bar.show{opacity:1;pointer-events:auto}
-.floating-bar.hide{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(20px)}
 .floating-bar a{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;font-size:0.88rem;font-weight:600;transition:transform 0.2s,background 0.2s;white-space:nowrap}
 .floating-bar a:hover{transform:translateY(-1px);background:rgba(255,255,255,0.06)}
 .floating-bar .sep{width:1px;height:22px;background:rgba(255,255,255,0.08)}
@@ -318,10 +314,8 @@ footer p{font-size:0.82rem;color:#666}
   .gallery-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .hero-content h1{font-size:clamp(1.6rem,8vw,2.4rem)}
-  .faq-wrap{padding:0 20px}
-  .floating-bar{flex-wrap:nowrap;justify-content:flex-start;width:calc(100% - 16px);border-radius:100px;padding:6px 10px;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:2px}
-  .floating-bar a{flex:none;padding:8px 12px;font-size:0.78rem}
-  .floating-bar .sep{display:none}
+  .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px}
+  .floating-bar a{flex:1;justify-content:center;min-width:60px;padding:8px 10px}
 }
 </style>
 </head>
@@ -734,7 +728,6 @@ footer p{font-size:0.82rem;color:#666}
       <span data-i18n="ft_copy">&copy; 2026 786 Halal Restaurant &mdash; All rights reserved</span>
       <span data-i18n="ft_since">Built with tradition since 2008</span>
     </div>
-    <div class="bisweb-bar">Website built by <a href="https://wa.me/14505180296" target="_blank" rel="noopener">Bisweb</a> &middot; <a href="https://wa.me/14505180296" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> (450) 518-0296</a></div>
   </div>
 </footer>
 
@@ -797,14 +790,9 @@ document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',toggleMob
 window.addEventListener('scroll',()=>{
   const nav=document.getElementById('nav');
   const btt=document.getElementById('btt');
-  const fb=document.getElementById('floatingBar');
   const y=window.scrollY;
   nav.classList.toggle('scrolled',y>80);
   btt.classList.toggle('show',y>600);
-  if(fb){
-    const nearBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-120;
-    fb.classList.toggle('hide',nearBottom);
-  }
 });
 
 // Scroll to #order

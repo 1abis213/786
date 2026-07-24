@@ -279,16 +279,24 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .faq-a p{font-size:0.88rem;color:#777;line-height:1.6}
 
 /* Legal */
-.legal{padding:100px 0;background:#0E0E0E;border-top:1px solid rgba(255,255,255,0.04)}
-.legal .container-narrow h2{margin-bottom:8px}
-.legal .container-narrow .legal-date{font-size:0.78rem;color:#555;margin-bottom:28px}
-.legal .container-narrow h3{font-size:1.05rem;color:#EDE8D8;margin:28px 0 10px;font-weight:600}
-.legal .container-narrow p{font-size:0.88rem;color:#777;line-height:1.7;margin-bottom:12px}
-.legal .container-narrow ul{padding-left:20px;margin-bottom:14px}
-.legal .container-narrow ul li{font-size:0.88rem;color:#777;line-height:1.7;margin-bottom:4px;list-style:disc}
-.legal .container-narrow ul li strong{color:#999}
-.legal .container-narrow a{color:#C99700;transition:color 0.2s}
-.legal .container-narrow a:hover{color:#D4A800}
+.legal-modal{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:20px}
+.legal-modal.open{display:flex}
+.legal-modal-bg{position:absolute;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px)}
+.legal-modal-content{position:relative;width:100%;max-width:720px;max-height:85vh;overflow-y:auto;background:#121212;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:40px 44px;scrollbar-width:thin;scrollbar-color:#333 transparent}
+.legal-modal-content::-webkit-scrollbar{width:5px}
+.legal-modal-content::-webkit-scrollbar-thumb{background:#333;border-radius:10px}
+.legal-modal-close{position:absolute;top:16px;right:20px;font-size:1.8rem;color:#555;background:none;border:none;cursor:pointer;transition:color 0.2s;line-height:1}
+.legal-modal-close:hover{color:#EDE8D8}
+.legal-modal-content .label{margin-top:0}
+.legal-modal-content h2{margin-bottom:8px}
+.legal-modal-content .legal-date{font-size:0.78rem;color:#555;margin-bottom:28px}
+.legal-modal-content h3{font-size:1.05rem;color:#EDE8D8;margin:28px 0 10px;font-weight:600}
+.legal-modal-content p{font-size:0.88rem;color:#777;line-height:1.7;margin-bottom:12px}
+.legal-modal-content ul{padding-left:20px;margin-bottom:14px}
+.legal-modal-content ul li{font-size:0.88rem;color:#777;line-height:1.7;margin-bottom:4px;list-style:disc}
+.legal-modal-content ul li strong{color:#999}
+.legal-modal-content a{color:#C99700;transition:color 0.2s}
+.legal-modal-content a:hover{color:#D4A800}
 
 /* Footer */
 footer{padding:80px 0 40px;border-top:1px solid rgba(255,255,255,0.04)}
@@ -829,63 +837,64 @@ footer p{font-size:0.82rem;color:#666}
   </div>
 </section>
 
-<section class="legal" id="privacy">
-  <div class="container-narrow">
-    <div class="label" data-i18n="priv_label">Privacy Policy</div>
-    <h2 data-i18n="priv_h2">Privacy Policy</h2>
-    <p class="legal-date" data-i18n="priv_date">Effective date: July 23, 2026</p>
+<div class="legal-modal" id="legalModal">
+  <div class="legal-modal-bg"></div>
+  <div class="legal-modal-content">
+    <button class="legal-modal-close" id="legalClose" aria-label="Close">&times;</button>
+    <div id="legalPrivacy">
+      <div class="label" data-i18n="priv_label">Privacy Policy</div>
+      <h2 data-i18n="priv_h2">Privacy Policy</h2>
+      <p class="legal-date" data-i18n="priv_date">Effective date: July 23, 2026</p>
 
-    <h3 data-i18n="priv_h1">1. Information We Collect</h3>
-    <p data-i18n="priv_p1">When you place an order, contact us, or use our website, we may collect personal information including your name, phone number, email address, delivery address, and order details. We collect this information directly from you when you provide it through our website, phone, or in-person orders.</p>
+      <h3 data-i18n="priv_h1">1. Information We Collect</h3>
+      <p data-i18n="priv_p1">When you place an order, contact us, or use our website, we may collect personal information including your name, phone number, email address, delivery address, and order details. We collect this information directly from you when you provide it through our website, phone, or in-person orders.</p>
 
-    <h3 data-i18n="priv_h2">2. How We Use Your Information</h3>
-    <p data-i18n="priv_p2">We use your information to process and fulfill your orders, communicate with you about your order, respond to your inquiries, improve our service, and comply with legal obligations. We do not sell your personal information to third parties.</p>
+      <h3 data-i18n="priv_h2">2. How We Use Your Information</h3>
+      <p data-i18n="priv_p2">We use your information to process and fulfill your orders, communicate with you about your order, respond to your inquiries, improve our service, and comply with legal obligations. We do not sell your personal information to third parties.</p>
 
-    <h3 data-i18n="priv_h3">3. Information Sharing</h3>
-    <p data-i18n="priv_p3">We may share your information with third-party delivery platforms (Uber Eats, DoorDash) when you choose to order through their services. These platforms have their own privacy policies governing your data. We may also share information when required by law or to protect our legal rights.</p>
+      <h3 data-i18n="priv_h3">3. Information Sharing</h3>
+      <p data-i18n="priv_p3">We may share your information with third-party delivery platforms (Uber Eats, DoorDash) when you choose to order through their services. These platforms have their own privacy policies governing your data. We may also share information when required by law or to protect our legal rights.</p>
 
-    <h3 data-i18n="priv_h4">4. Data Security</h3>
-    <p data-i18n="priv_p4">We implement reasonable security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure. We retain your information only as long as necessary to fulfill the purposes outlined in this policy.</p>
+      <h3 data-i18n="priv_h4">4. Data Security</h3>
+      <p data-i18n="priv_p4">We implement reasonable security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure. We retain your information only as long as necessary to fulfill the purposes outlined in this policy.</p>
 
-    <h3 data-i18n="priv_h5">5. Your Rights</h3>
-    <p data-i18n="priv_p5">You have the right to access, correct, or delete your personal information held by us. To exercise these rights, please contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a>. Under Quebec law (Law 25) and Canadian PIPEDA, you may also withdraw consent for the use of your data at any time, subject to legal restrictions.</p>
+      <h3 data-i18n="priv_h5">5. Your Rights</h3>
+      <p data-i18n="priv_p5">You have the right to access, correct, or delete your personal information held by us. To exercise these rights, please contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a>. Under Quebec law (Law 25) and Canadian PIPEDA, you may also withdraw consent for the use of your data at any time, subject to legal restrictions.</p>
 
-    <h3 data-i18n="priv_h6">6. Cookies</h3>
-    <p data-i18n="priv_p6">Our website may use basic cookies for functionality purposes. We do not use tracking cookies for advertising. You may configure your browser to refuse cookies, though this may affect certain features of the site.</p>
+      <h3 data-i18n="priv_h6">6. Cookies</h3>
+      <p data-i18n="priv_p6">Our website may use basic cookies for functionality purposes. We do not use tracking cookies for advertising. You may configure your browser to refuse cookies, though this may affect certain features of the site.</p>
 
-    <h3 data-i18n="priv_h7">7. Contact</h3>
-    <p data-i18n="priv_p7">For questions about this Privacy Policy, contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a> or call <a href="tel:+15142700786">(514) 270-0786</a>.</p>
+      <h3 data-i18n="priv_h7">7. Contact</h3>
+      <p data-i18n="priv_p7">For questions about this Privacy Policy, contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a> or call <a href="tel:+15142700786">(514) 270-0786</a>.</p>
+    </div>
+    <div id="legalTerms" style="display:none">
+      <div class="label" data-i18n="terms_label">Terms of Use</div>
+      <h2 data-i18n="terms_h2">Terms of Use</h2>
+      <p class="legal-date" data-i18n="terms_date">Effective date: July 23, 2026</p>
+
+      <h3 data-i18n="terms_h1">1. Acceptance of Terms</h3>
+      <p data-i18n="terms_p1">By accessing or using the 786 Halal Restaurant website, you agree to be bound by these Terms of Use. If you do not agree, please do not use our website or services. We reserve the right to update these terms at any time; continued use constitutes acceptance of any changes.</p>
+
+      <h3 data-i18n="terms_h2">2. Orders &amp; Pricing</h3>
+      <p data-i18n="terms_p2">All prices are listed in Canadian dollars (CAD) and include applicable taxes unless stated otherwise. We reserve the right to modify prices at any time. Orders placed through third-party platforms (Uber Eats, DoorDash) are subject to their respective terms and pricing. We reserve the right to refuse or cancel any order at our discretion.</p>
+
+      <h3 data-i18n="terms_h3">3. Allergies &amp; Dietary Needs</h3>
+      <p data-i18n="terms_p3">While we take reasonable precautions to accommodate dietary restrictions, we cannot guarantee that any dish is free from allergens. Our kitchen processes nuts, dairy, gluten, and other common allergens. Please inform us of any allergies when placing your order, and we will do our best to accommodate your needs.</p>
+
+      <h3 data-i18n="terms_h4">4. Intellectual Property</h3>
+      <p data-i18n="terms_p4">All content on this website, including text, images, logos, and design, is the property of 786 Halal Restaurant unless otherwise credited. You may not reproduce, distribute, or use any content without our written permission.</p>
+
+      <h3 data-i18n="terms_h5">5. Limitation of Liability</h3>
+      <p data-i18n="terms_p5">786 Halal Restaurant shall not be liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our total liability is limited to the amount paid for the specific service in question.</p>
+
+      <h3 data-i18n="terms_h6">6. Governing Law</h3>
+      <p data-i18n="terms_p6">These terms are governed by the laws of the Province of Quebec and the federal laws of Canada applicable therein. Any disputes shall be resolved in the courts of Montreal, Quebec.</p>
+
+      <h3 data-i18n="terms_h7">7. Contact</h3>
+      <p data-i18n="terms_p7">For questions about these Terms, contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a> or call <a href="tel:+15142700786">(514) 270-0786</a>.</p>
+    </div>
   </div>
-</section>
-
-<section class="legal" id="terms">
-  <div class="container-narrow">
-    <div class="label" data-i18n="terms_label">Terms of Use</div>
-    <h2 data-i18n="terms_h2">Terms of Use</h2>
-    <p class="legal-date" data-i18n="terms_date">Effective date: July 23, 2026</p>
-
-    <h3 data-i18n="terms_h1">1. Acceptance of Terms</h3>
-    <p data-i18n="terms_p1">By accessing or using the 786 Halal Restaurant website, you agree to be bound by these Terms of Use. If you do not agree, please do not use our website or services. We reserve the right to update these terms at any time; continued use constitutes acceptance of any changes.</p>
-
-    <h3 data-i18n="terms_h2">2. Orders &amp; Pricing</h3>
-    <p data-i18n="terms_p2">All prices are listed in Canadian dollars (CAD) and include applicable taxes unless stated otherwise. We reserve the right to modify prices at any time. Orders placed through third-party platforms (Uber Eats, DoorDash) are subject to their respective terms and pricing. We reserve the right to refuse or cancel any order at our discretion.</p>
-
-    <h3 data-i18n="terms_h3">3. Allergies &amp; Dietary Needs</h3>
-    <p data-i18n="terms_p3">While we take reasonable precautions to accommodate dietary restrictions, we cannot guarantee that any dish is free from allergens. Our kitchen processes nuts, dairy, gluten, and other common allergens. Please inform us of any allergies when placing your order, and we will do our best to accommodate your needs.</p>
-
-    <h3 data-i18n="terms_h4">4. Intellectual Property</h3>
-    <p data-i18n="terms_p4">All content on this website, including text, images, logos, and design, is the property of 786 Halal Restaurant unless otherwise credited. You may not reproduce, distribute, or use any content without our written permission.</p>
-
-    <h3 data-i18n="terms_h5">5. Limitation of Liability</h3>
-    <p data-i18n="terms_p5">786 Halal Restaurant shall not be liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our total liability is limited to the amount paid for the specific service in question.</p>
-
-    <h3 data-i18n="terms_h6">6. Governing Law</h3>
-    <p data-i18n="terms_p6">These terms are governed by the laws of the Province of Quebec and the federal laws of Canada applicable therein. Any disputes shall be resolved in the courts of Montreal, Quebec.</p>
-
-    <h3 data-i18n="terms_h7">7. Contact</h3>
-    <p data-i18n="terms_p7">For questions about these Terms, contact us at <a href="mailto:info@786halalrestaurant.com">info@786halalrestaurant.com</a> or call <a href="tel:+15142700786">(514) 270-0786</a>.</p>
-  </div>
-</section>
+</div>
 
 <footer>
   <div class="container">
@@ -911,8 +920,8 @@ footer p{font-size:0.82rem;color:#666}
         <a href="#gallery" data-i18n="ft_gallery">Gallery</a>
         <a href="#services" data-i18n="ft_services">Services</a>
         <a href="#reviews" data-i18n="ft_reviews">Reviews</a>
-        <a href="#privacy" data-i18n="ft_privacy">Privacy Policy</a>
-        <a href="#terms" data-i18n="ft_terms">Terms of Use</a>
+        <a href="#" data-modal="privacy" data-i18n="ft_privacy">Privacy Policy</a>
+        <a href="#" data-modal="terms" data-i18n="ft_terms">Terms of Use</a>
       </div>
       <div>
         <h4 data-i18n="ft_contact">Contact</h4>
@@ -924,7 +933,7 @@ footer p{font-size:0.82rem;color:#666}
     </div>
     <div class="footer-bottom">
       <span data-i18n="ft_copy">&copy; 2026 786 Halal Restaurant &mdash; All rights reserved</span>
-      <span><a href="#privacy" data-i18n="ft_privacy" style="color:#666;transition:color 0.2s">Privacy Policy</a> &middot; <a href="#terms" data-i18n="ft_terms" style="color:#666;transition:color 0.2s">Terms of Use</a></span>
+      <span><a href="#" data-modal="privacy" data-i18n="ft_privacy" style="color:#666;transition:color 0.2s">Privacy Policy</a> &middot; <a href="#" data-modal="terms" data-i18n="ft_terms" style="color:#666;transition:color 0.2s">Terms of Use</a></span>
       <span data-i18n="ft_since">Built with tradition since 2008</span>
     </div>
     <div class="bisweb-bar">Website built by <a href="https://wa.me/14505180296" target="_blank" rel="noopener">Bisweb</a> &middot; <a href="https://wa.me/14505180296" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> (450) 518-0296</a></div>
@@ -961,9 +970,9 @@ function animateIn(sel,fromVars){
   });
 }
 
-document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip,.legal').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
+document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
 
-ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip,.legal',{
+ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip',{
   start:'top 87%',
   once:true,
   onEnter:batch=>gsap.to(batch,{opacity:1,y:0,duration:0.9,stagger:0.15,ease:'power3.out'})
@@ -1101,6 +1110,27 @@ window.addEventListener('scroll',()=>{
   track.addEventListener('mouseenter',()=>clearInterval(timer));
   track.addEventListener('mouseleave',()=>{timer=setInterval(()=>go(idx+1),5000);});
 })();
+
+// ── Legal Modal ────────────────────────────────────────────────────────────────
+const legalModal=document.getElementById('legalModal');
+const legalClose=document.getElementById('legalClose');
+document.querySelectorAll('[data-modal]').forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    const tab=link.dataset.modal;
+    document.getElementById('legalPrivacy').style.display=tab==='privacy'?'':'none';
+    document.getElementById('legalTerms').style.display=tab==='terms'?'':'none';
+    legalModal.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+function closeLegal(){
+  legalModal.classList.remove('open');
+  document.body.style.overflow='';
+}
+legalClose.addEventListener('click',closeLegal);
+legalModal.addEventListener('click',e=>{if(e.target===legalModal||e.target.classList.contains('legal-modal-bg'))closeLegal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&legalModal.classList.contains('open'))closeLegal();});
 
 // ── i18n ──────────────────────────────────────────────────────────────────────
 const translations={

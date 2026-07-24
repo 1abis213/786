@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"786 Halal Restaurant","url":"https://786halalrestaurant.com","telephone":"+1-514-270-0786","email":"info@786halalrestaurant.com","servesCuisine":["Pakistani","Halal","South Asian"],"priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"850 Rue Jean-Talon Ouest","addressLocality":"Montreal","addressRegion":"QC","postalCode":"H3N 1S4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.5255,"longitude":-73.6279},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"11:00","closes":"13:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"14:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/786halalrestaurant/","https://www.facebook.com/786HalalRestaurant/"]}
+{"@context":"https://schema.org","@type":"Restaurant","name":"786 Halal Restaurant","url":"https://786halalrestaurant.com","telephone":"+1-514-270-0786","email":"info@786halalrestaurant.com","servesCuisine":["Pakistani","Halal","South Asian"],"priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"850 Rue Jean-Talon Ouest","addressLocality":"Montreal","addressRegion":"QC","postalCode":"H3N 1S4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.5255,"longitude":-73.6279},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Saturday","Sunday"],"opens":"11:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"11:00","closes":"21:00"}],"sameAs":["https://www.instagram.com/786halalrestaurant/","https://www.facebook.com/786HalalRestaurant/"]}
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -145,17 +145,9 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 /* Reviews */
 .reviews-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.reviews-carousel{position:relative;overflow:hidden;padding:0 52px}
-.carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);gap:24px}
-.carousel-track .r-card{flex:0 0 calc((100% - 48px)/3);min-width:0;padding:32px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:4px;transition:background 0.2s}
-.carousel-track .r-card:hover{background:#1A1A1A}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:100%;background:rgba(20,20,20,0.85);border:1px solid rgba(255,255,255,0.06);color:#888;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;font-size:0.85rem;backdrop-filter:blur(8px)}
-.carousel-btn:hover{background:#1A1A1A;color:#EDE8D8;border-color:rgba(255,255,255,0.15)}
-.carousel-btn.prev{left:0}
-.carousel-btn.next{right:0}
-.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap}
-.carousel-dots button{width:8px;height:8px;border-radius:100%;border:none;background:rgba(255,255,255,0.1);cursor:pointer;transition:all 0.3s;padding:0}
-.carousel-dots button.active{background:#C99700;width:24px;border-radius:4px}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.r-card{padding:32px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:4px;transition:background 0.2s}
+.r-card:hover{background:#1A1A1A}
 .r-card .top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .r-card .avatar{width:36px;height:36px;border-radius:100%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.82rem;flex-shrink:0}
 .r-card .name{font-weight:600;font-size:0.9rem;color:#EDE8D8}
@@ -237,36 +229,6 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .hours .t{color:#EDE8D8;font-size:0.82rem;text-align:right}
 .hours .n{grid-column:span 2;font-size:0.72rem;color:#555;font-style:italic;margin-top:2px}
 
-/* Services */
-.services{padding:120px 0;background:#0E0E0E}
-.services .sv-head{text-align:center;max-width:640px;margin:0 auto 60px}
-.services .sv-head .gold-line{width:40px;height:2px;background:#C99700;margin:0 auto 16px;border-radius:1px}
-.services .sv-head h2{margin-bottom:16px}
-.services .sv-head p{color:#888;font-size:0.95rem;line-height:1.7}
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.sv-card{position:relative;padding:40px 36px 36px;background:#141414;border:1px solid rgba(255,255,255,0.04);border-radius:20px;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);overflow:hidden}
-.sv-card::before{content:'';position:absolute;top:0;right:0;width:64px;height:64px;background:linear-gradient(135deg,transparent 50%,rgba(201,151,0,0.06) 50%);border-radius:0 20px 0 0;transition:all 0.4s;pointer-events:none}
-.sv-card::after{content:'';position:absolute;top:10px;right:10px;width:4px;height:4px;background:#C99700;border-radius:50%;opacity:0.25;transition:opacity 0.4s;pointer-events:none}
-.sv-card:hover{transform:translateY(-4px);border-color:rgba(201,151,0,0.3);box-shadow:0 12px 40px rgba(201,151,0,0.06),0 0 60px rgba(201,151,0,0.03);background:#181818}
-.sv-card:hover::before{background:linear-gradient(135deg,transparent 50%,rgba(201,151,0,0.12) 50%)}
-.sv-card:hover::after{opacity:0.7}
-.sv-card .sv-icon{font-size:1.6rem;color:#C99700;margin-bottom:18px;display:inline-block;transition:transform 0.4s ease}
-.sv-card:hover .sv-icon{transform:scale(1.08) rotate(-3deg)}
-.sv-card h3{font-size:1.15rem;margin-bottom:6px}
-.sv-card .sv-divider{width:32px;height:1.5px;background:linear-gradient(90deg,#C99700,transparent);margin:12px 0 14px;border-radius:1px}
-.sv-card p{font-size:0.85rem;color:#777;line-height:1.65;margin-bottom:20px}
-.sv-card .sv-badge{display:inline-block;padding:4px 10px;background:rgba(76,175,80,0.1);border:1px solid rgba(76,175,80,0.2);border-radius:6px;font-size:0.66rem;font-weight:600;color:#4CAF50;margin-bottom:16px}
-.sv-card .sv-cta{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#C99700;padding:8px 0;transition:all 0.3s;border-bottom:1px solid rgba(201,151,0,0);cursor:pointer}
-.sv-card .sv-cta:hover{color:#D4A800;gap:10px;border-bottom-color:rgba(201,151,0,0.3)}
-.sv-card .sv-cta i{font-size:0.7rem;transition:transform 0.3s}
-.sv-card .sv-cta:hover i{transform:translateX(3px)}
-.sv-why-strip{margin-top:60px;padding:36px 40px;background:rgba(20,20,20,0.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(201,151,0,0.12);border-radius:20px;box-shadow:0 0 40px rgba(201,151,0,0.04);text-align:center}
-.sv-why-strip h3{font-size:1.2rem;margin-bottom:20px;color:#EDE8D8}
-.sv-why-strip h3 em{font-style:normal;color:#C99700}
-.sv-why-strip .sv-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 20px;max-width:720px;margin:0 auto}
-.sv-why-strip .sv-why-grid span{display:flex;align-items:center;justify-content:center;gap:7px;font-size:0.85rem;color:#999;padding:5px 0}
-.sv-why-strip .sv-why-grid span i{color:#C99700;font-size:0.55rem}
-
 /* FAQ */
 .faq-wrap{max-width:680px;margin:0 auto}
 .faq-item{border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -275,7 +237,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .faq-q i{font-size:0.78rem;color:#555;transition:transform 0.3s}
 .faq-item.active .faq-q i{transform:rotate(180deg);color:#C99700}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0}
-.faq-item.active .faq-a{max-height:1000px;padding:0 0 18px}
+.faq-item.active .faq-a{max-height:300px;padding:0 0 18px}
 .faq-a p{font-size:0.88rem;color:#777;line-height:1.6}
 
 /* Footer */
@@ -288,14 +250,10 @@ footer p{font-size:0.82rem;color:#666}
 .footer-social{display:flex;gap:14px;margin-top:14px}
 .footer-social a{font-size:1.05rem;padding:0}
 .footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;font-size:0.75rem;color:#444}
-.bisweb-bar{text-align:center;font-size:0.7rem;color:#444;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.03)}
-.bisweb-bar a{color:#666;text-decoration:none;transition:color 0.2s}
-.bisweb-bar a:hover{color:#C99700}
 
 /* Floating bar */
 .floating-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:6px;padding:10px 14px;background:rgba(20,20,20,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.08);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.6);transition:transform 0.4s,opacity 0.4s;opacity:0;pointer-events:none}
 .floating-bar.show{opacity:1;pointer-events:auto}
-.floating-bar.hide{opacity:0;pointer-events:none;transform:translateX(-50%) translateY(20px)}
 .floating-bar a{display:flex;align-items:center;gap:7px;padding:10px 20px;border-radius:100px;font-size:0.88rem;font-weight:600;transition:transform 0.2s,background 0.2s;white-space:nowrap}
 .floating-bar a:hover{transform:translateY(-1px);background:rgba(255,255,255,0.06)}
 .floating-bar .sep{width:1px;height:22px;background:rgba(255,255,255,0.08)}
@@ -336,9 +294,7 @@ footer p{font-size:0.82rem;color:#666}
   .item.wide{grid-column:span 1}
   .gallery-grid .item{min-height:160px}
   .why-grid{grid-template-columns:repeat(2,1fr)}
-  .carousel-track .r-card{flex:0 0 calc(100% - 4px)}
-  .reviews-carousel{padding:0 36px}
-  .carousel-btn{width:32px;height:32px;font-size:0.75rem}
+  .reviews-grid{grid-template-columns:1fr}
   .order-strip{grid-template-columns:1fr}
   .order-strip>a{padding:36px 20px}
   .hours{grid-template-columns:1fr}
@@ -347,32 +303,19 @@ footer p{font-size:0.82rem;color:#666}
   .footer-bottom{flex-direction:column;text-align:center;gap:6px}
   .floating-bar{gap:4px;padding:6px}
   .floating-bar a{padding:8px 14px;font-size:0.8rem}
+  .floating-bar a span{display:none}
   .loc .map-overlay{left:12px;bottom:12px;gap:6px}
   .loc .map-overlay a{padding:10px 16px;font-size:0.75rem}
   .info-window{min-width:220px;padding:18px}
   .info-window .iw-name{font-size:0.95rem}
   .info-window .iw-actions a{padding:8px 12px;font-size:0.72rem}
-  .services-grid{grid-template-columns:1fr}
-  .sv-card{padding:32px 28px}
-  .sv-why-strip{padding:28px 24px}
-  .sv-why-strip .sv-why-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:480px){
   .gallery-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr;gap:16px}
-  .sv-card{padding:28px 24px}
-  .services .sv-head{margin-bottom:40px}
-  .sv-card .sv-icon{font-size:1.4rem}
-  .sv-card h3{font-size:1.05rem}
-  .sv-why-strip{padding:24px 20px}
-  .sv-why-strip .sv-why-grid{grid-template-columns:1fr}
-  .sv-why-strip h3{font-size:1rem}
   .hero-content h1{font-size:clamp(1.6rem,8vw,2.4rem)}
-  .faq-wrap{padding:0 20px}
-  .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px 10px;gap:3px}
-  .floating-bar a{flex:1;justify-content:center;min-width:70px;padding:7px 6px;font-size:0.72rem;gap:4px}
-  .floating-bar .sep{display:none}
+  .floating-bar{flex-wrap:wrap;justify-content:center;width:calc(100% - 16px);border-radius:16px;padding:8px}
+  .floating-bar a{flex:1;justify-content:center;min-width:60px;padding:8px 10px}
 }
 </style>
 </head>
@@ -385,12 +328,11 @@ footer p{font-size:0.82rem;color:#666}
       <a href="#story" data-i18n="nav_story">Story</a>
       <a href="#menu" data-i18n="nav_menu">Menu</a>
       <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
       <a href="#reviews" data-i18n="nav_reviews">Reviews</a>
-      <a href="#order" data-i18n="nav_order_link">Order</a>
+      <a href="#order" data-i18n="nav_order">Order</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
-    <a href="#order" class="nav-order" data-i18n="nav_order_cta">Order online</a>
+    <a href="#order" class="nav-order" data-i18n="nav_order">Order online</a>
     <button class="nav-lang" id="langToggle">FR</button>
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -400,9 +342,8 @@ footer p{font-size:0.82rem;color:#666}
   <a href="#story" class="ml" data-i18n="nav_story">Story</a>
   <a href="#menu" class="ml" data-i18n="nav_menu">Menu</a>
   <a href="#gallery" class="ml" data-i18n="nav_gallery">Gallery</a>
-  <a href="#services" class="ml" data-i18n="nav_services">Services</a>
   <a href="#reviews" class="ml" data-i18n="nav_reviews">Reviews</a>
-  <a href="#order" class="ml" data-i18n="nav_order_link">Order</a>
+  <a href="#order" class="ml" data-i18n="nav_order">Order</a>
   <a href="#contact" class="ml" data-i18n="nav_contact">Contact</a>
   <button class="ml mobile-lang" id="mobileLang" style="margin-top:16px;background:rgba(255,255,255,0.08);color:#EDE8D8;border:none;padding:10px 20px;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer">FR</button>
 </div>
@@ -560,53 +501,40 @@ footer p{font-size:0.82rem;color:#666}
     <h2 data-i18n="rv_h2">Why people keep coming back</h2>
   </div>
   <div class="reviews-wrap">
-    <div class="reviews-carousel">
-      <div class="carousel-track" id="reviewTrack" aria-live="polite">
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1E2A10">AA</div><div><div class="name">Ali A.</div><div class="date">Google &middot; <span data-i18n="rv_d1">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q1">&ldquo;The <strong>Chicken Chargha</strong> is the best I've had outside Lahore. Crispy, perfectly spiced, incredible masala. A hidden Montreal gem.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2A1A1A">SK</div><div><div class="name">Sara K.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d2">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q2">&ldquo;Ordered the <strong>Beef Nihari</strong> for the first time &ndash; absolutely incredible depth of flavour. The naan arrived fresh even through delivery. So impressed.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">MR</div><div><div class="name">Mohammad R.</div><div class="date">Google &middot; <span data-i18n="rv_d3">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q3">&ldquo;The <strong>Chicken Biryani</strong> is out of this world. Generous portions, amazing aroma, great service. You can taste the tradition in every bite.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E22">FT</div><div><div class="name">Fatima T.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d4">5 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q4">&ldquo;Best halal restaurant in Montreal. The <strong>Lamb Karahi</strong> is perfection &ndash; tender, rich, and beautifully spiced. And the garlic naan is always on point.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A1A">HM</div><div><div class="name">Hassan M.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d5">Yesterday</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q5">&ldquo;The <strong>Butter Chicken</strong> is hands down the best in Montreal. Creamy, rich, perfectly spiced. The garlic naan was warm and fresh even through delivery.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E2E">AN</div><div><div class="name">Aisha N.</div><div class="date">Google &middot; <span data-i18n="rv_d6">1 week ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q6">&ldquo;Absolutely love the <strong>Chapli Kabab</strong>! Crispy on the outside, juicy inside. The pomegranate seed tang is perfect. Reminds me of Peshawar.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E1A">RK</div><div><div class="name">Rizwan K.</div><div class="date">Google &middot; <span data-i18n="rv_d7">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q7">&ldquo;Ordered the <strong>Seekh Kabab</strong> platter for a family dinner and everyone was blown away. Perfectly grilled, amazing spices. The mint chutney is fantastic.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">ZN</div><div><div class="name">Zara N.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d8">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q8">&ldquo;The <strong>Palak Paneer</strong> is incredible &ndash; silky smooth spinach with generous chunks of homemade paneer. Best vegetarian dish I've had in a long time.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A2E">OM</div><div><div class="name">Omar M.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d9">1 month ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q9">&ldquo;Been ordering from 786 for years. The <strong>Chicken Biryani</strong> is consistently amazing &ndash; fragrant, perfectly layered, generous portions. Never disappoints.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E1A">SF</div><div><div class="name">Saima F.</div><div class="date">Google &middot; <span data-i18n="rv_d10">4 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q10">&ldquo;Tried the <strong>Beef Nihari</strong> for the first time last night. Melt-in-your-mouth tender, rich gravy, incredible depth of flavour. A must-try.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E2E">KA</div><div><div class="name">Khalid A.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d11">2 months ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q11">&ldquo;The <strong>Lamb Karahi</strong> here is the real deal. Tender lamb, authentic spices, cooked perfectly. Tastes like something from a dhaba in Punjab.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A1A">SN</div><div><div class="name">Sana N.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d12">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q12">&ldquo;The <strong>Garlic Naan</strong> alone is worth the trip. Perfectly charred, loaded with garlic and butter. Best naan in Montreal, hands down.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A10">IM</div><div><div class="name">Imran M.</div><div class="date">Google &middot; <span data-i18n="rv_d13">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q13">&ldquo;Had the <strong>Chicken Tikka</strong> and it was phenomenal. Smoky, juicy, perfectly charred. The chaat masala on top &ndash; chef's kiss. Will be back.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#102E1A">FA</div><div><div class="name">Farah A.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d14">5 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q14">&ldquo;The <strong>Haleem</strong> is absolutely divine. Perfect consistency, amazing spice blend, served with crispy fried onions and lemon. Comfort food at its finest.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A102E">TA</div><div><div class="name">Tariq A.</div><div class="date">Google &middot; <span data-i18n="rv_d15">1 month ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q15">&ldquo;786 is a Montreal institution. The <strong>Chicken Chargha</strong> is legendary &ndash; perfectly spiced skin, tender meat. Every friend I bring here becomes a regular.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E10">RB</div><div><div class="name">Rabia B.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d16">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q16">&ldquo;The <strong>Daal Makhni</strong> is comfort in a bowl. Slow-cooked to perfection, creamy, rich. Tastes like it's been simmering for hours. Absolutely authentic.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1010">AK</div><div><div class="name">Asad K.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d17">1 week ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q17">&ldquo;Finally found authentic Pakistani food in Montreal. The <strong>Mutton Karahi</strong> is incredible &ndash; tender meat, rich tomato-based gravy, perfect heat. Felt like home.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#10102E">NH</div><div><div class="name">Nadia H.</div><div class="date">Google &middot; <span data-i18n="rv_d18">Yesterday</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q18">&ldquo;Ordered the <strong>Chicken Qorma</strong> and it was pure perfection. Fragrant, creamy, perfectly spiced. The naan was soft and fresh. Can't recommend enough.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E10">BS</div><div><div class="name">Bilal S.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d19">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q19">&ldquo;The <strong>Beef Bihari Kebab</strong> is out of this world. So tender, perfectly marinated, amazing smokiness. The yoghurt sauce pairs perfectly. Outstanding.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A2E">FM</div><div><div class="name">Fahad M.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d20">2 months ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q20">&ldquo;Best halal delivery option in Montreal hands down. The <strong>Chicken Biryani</strong> arrives fresh, aromatic, perfectly packed. Portions are very generous.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E2E">SH</div><div><div class="name">Sadia H.</div><div class="date">Google &middot; <span data-i18n="rv_d21">4 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q21">&ldquo;The <strong>Aloo Gobi</strong> is amazing &ndash; perfectly spiced, not oily, generous portion. Tastes like my mother used to make. The roti was fresh and soft.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E1A">UJ</div><div><div class="name">Usman J.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d22">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q22">&ldquo;The <strong>Fish Curry</strong> is a hidden gem. Perfectly spiced, tender fish, amazing gravy. Not many places in Montreal do fish justice &ndash; 786 does.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">LQ</div><div><div class="name">Lubna Q.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d23">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q23">&ldquo;The <strong>Chapli Kabab</strong> with fresh naan is the perfect meal. Crispy, flavourful, comes with amazing salad and yoghurt. Can't get enough!&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1010">AI</div><div><div class="name">Amir I.</div><div class="date">Google &middot; <span data-i18n="rv_d24">1 month ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q24">&ldquo;Took my family here for dinner &ndash; everyone loved it. The <strong>Seekh Kabab</strong> platter was a hit. Service is warm and welcoming. A true Montreal gem.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#102E10">MW</div><div><div class="name">Maria W.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d25">5 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q25">&ldquo;First time trying Pakistani food and I'm converted. The <strong>Butter Chicken</strong> is the best I've ever had. The garlic naan is phenomenal. Will be a regular.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A2E">KA</div><div><div class="name">Kamran A.</div><div class="date">Google &middot; <span data-i18n="rv_d26">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q26">&ldquo;The <strong>Lamb Korma</strong> is pure comfort food. Rich, creamy, perfectly spiced, loaded with tender lamb. Served with fresh naan &ndash; absolute perfection.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A102E">SR</div><div><div class="name">Sadia R.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d27">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q27">&ldquo;I crave the <strong>Chicken Chargha</strong> weekly. That crispy, spiced skin is addictive. The meat falls off the bone. Served with salad and naan &ndash; unbeatable.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E1A">NM</div><div><div class="name">Naveed M.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d28">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q28">&ldquo;The <strong>Baingan Bharta</strong> is incredible &ndash; smoky, perfectly spiced, rich texture. Even my meat-lover husband couldn't get enough. Vegetarian done right.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E2E">SK</div><div><div class="name">Shahid K.</div><div class="date">Google &middot; <span data-i18n="rv_d29">1 week ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q29">&ldquo;The <strong>Daal Chawal</strong> tastes exactly like home. Comforting, simple, perfect. Sometimes the simplest dishes tell you the most about a restaurant. Outstanding.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1010">FH</div><div><div class="name">Farhan H.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d30">Yesterday</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q30">&ldquo;Ordered the <strong>Chicken Tikka</strong> and <strong>Seekh Kabab</strong> combo &ndash; absolutely fantastic. Perfectly charred, amazing marinade, generous portions. Best BBQ in Montreal.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#102E2E">RY</div><div><div class="name">Rashid Y.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d31">2 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q31">&ldquo;The <strong>Palak Paneer</strong> here ruined all other palak paneer for me. It's that good. Fresh, creamy, perfectly spiced. A side of garlic naan completes the meal.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A1A">AA</div><div><div class="name">Ayesha A.</div><div class="date">Google &middot; <span data-i18n="rv_d32">4 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q32">&ldquo;The <strong>Raita</strong> and <strong>Salad</strong> that come with every meal are so fresh and well-prepared. You can tell everything is made from scratch. Highly recommend!&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A10">MZ</div><div><div class="name">Mehmood Z.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d33">1 month ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q33">&ldquo;The <strong>Beef Nihari</strong> with naan is my go-to order. The gravy is rich, beef is melt-in-your-mouth tender. A bit of ginger and green chilli on top &ndash; perfect.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E1A">GN</div><div><div class="name">Ghulam N.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d34">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q34">&ldquo;The <strong>Chicken Biryani</strong> is the real deal. Layers of fragrant basmati, tender chicken, perfect spice level. Comes with raita and salan. Authentic Lahori style.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E10">ZA</div><div><div class="name">Zainab A.</div><div class="date">Google &middot; <span data-i18n="rv_d35">Last week</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q35">&ldquo;Best halal food in Montreal and it's not even close. The <strong>Chapli Kabab</strong> is incredible, the <strong>Biryani</strong> is perfect, and the service is always warm.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#10102E">AR</div><div><div class="name">Abdul R.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d36">5 days ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q36">&ldquo;The <strong>Paneer Tikka</strong> is fantastic &ndash; perfectly charred, beautifully spiced, served with mint chutney. Even my meat-eating friends loved it.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E1A2E">SI</div><div><div class="name">Shabana I.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d37">2 months ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q37">&ldquo;The <strong>Lamb Karahi</strong> is the dish that keeps me coming back. Rich, aromatic, perfect spice balance. Served with hot fresh naan &ndash; an absolute must-order.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A2E2E">JA</div><div><div class="name">Junaid A.</div><div class="date">Google &middot; <span data-i18n="rv_d38">1 week ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q38">&ldquo;Just discovered this gem and I've already ordered three times. The <strong>Chicken Qorma</strong> is exceptional. Everything tastes fresh and made with love.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#2E2E2E">NW</div><div><div class="name">Nazia W.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d39">3 weeks ago</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q39">&ldquo;The <strong>Chicken Chargha</strong> is absolutely addictive. That crispy, spiced skin is perfection. The meat is so tender it falls off the bone. A must-order every time.&rdquo;</blockquote></div>
-        <div class="r-card"><div class="top"><div class="avatar" style="background:#1A1A2E">RT</div><div><div class="name">Rahat T.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d40">Yesterday</span></div></div><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div><blockquote data-i18n="rv_q40">&ldquo;Ordered catering from 786 for our office event &ndash; huge hit. The <strong>Chicken Biryani</strong> and <strong>Butter Chicken</strong> fed 20 people. Everyone asked where it was from.&rdquo;</blockquote></div>
+    <div class="reviews-grid">
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1E2A10">AA</div>
+          <div><div class="name">Ali A.</div><div class="date">Google &middot; <span data-i18n="rv_d1">2 weeks ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q1">&ldquo;The <strong>Chicken Chargha</strong> is the best I've had outside Lahore. Crispy, perfectly spiced, incredible masala. A hidden Montreal gem.&rdquo;</blockquote>
       </div>
-      <button class="carousel-btn prev" id="reviewPrev" aria-label="Previous review"><i class="fas fa-chevron-left"></i></button>
-      <button class="carousel-btn next" id="reviewNext" aria-label="Next review"><i class="fas fa-chevron-right"></i></button>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#2A1A1A">SK</div>
+          <div><div class="name">Sara K.</div><div class="date">DoorDash &middot; <span data-i18n="rv_d2">Last week</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q2">&ldquo;Ordered the <strong>Beef Nihari</strong> for the first time &ndash; absolutely incredible depth of flavour. The naan arrived fresh even through delivery. So impressed.&rdquo;</blockquote>
+      </div>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1A1A2E">MR</div>
+          <div><div class="name">Mohammad R.</div><div class="date">Google &middot; <span data-i18n="rv_d3">3 weeks ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q3">&ldquo;The <strong>Chicken Biryani</strong> is out of this world. Generous portions, amazing aroma, great service. You can taste the tradition in every bite.&rdquo;</blockquote>
+      </div>
+      <div class="r-card">
+        <div class="top">
+          <div class="avatar" style="background:#1A2E22">FT</div>
+          <div><div class="name">Fatima T.</div><div class="date">Uber Eats &middot; <span data-i18n="rv_d4">5 days ago</span></div></div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        </div>
+        <blockquote data-i18n="rv_q4">&ldquo;Best halal restaurant in Montreal. The <strong>Lamb Karahi</strong> is perfection &ndash; tender, rich, and beautifully spiced. And the garlic naan is always on point.&rdquo;</blockquote>
+      </div>
     </div>
-    <div class="carousel-dots" id="reviewDots"></div>
   </div>
 </section>
 
@@ -641,72 +569,19 @@ footer p{font-size:0.82rem;color:#666}
   </div>
 </section>
 
-<section class="services" id="services">
-  <div class="container">
-    <div class="sv-head">
-      <div class="gold-line"></div>
-      <div class="label" data-i18n="sv_label">Our Services</div>
-      <h2 data-i18n="sv_h2">Dine in, take out, catered</h2>
-      <p data-i18n="sv_sub">Enjoy authentic Pakistani hospitality whether you dine with us, take your meal home, or let us cater your next event.</p>
-    </div>
-    <div class="services-grid">
-      <div class="sv-card">
-        <i class="fas fa-utensils sv-icon"></i>
-        <h3 data-i18n="sv1_title">Dine-In Experience</h3>
-        <div class="sv-divider"></div>
-        <p data-i18n="sv1_desc">Enjoy authentic Pakistani halal cuisine in a clean, welcoming, and elegant dining environment. Our spacious restaurant and warm hospitality are designed to make every meal feel like home, bringing the rich flavors and traditions of Pakistan to Montreal.</p>
-        <a href="#contact" class="sv-cta" data-i18n="sv1_cta">Reserve a Table <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="sv-card">
-        <i class="fas fa-bag-shopping sv-icon"></i>
-        <h3 data-i18n="sv2_title">Takeout</h3>
-        <div class="sv-divider"></div>
-        <p data-i18n="sv2_desc">Take the taste of Pakistan wherever you go. Every order is carefully prepared and packaged using high-quality food-safe materials to preserve freshness, flavor, and presentation from our kitchen to your table.</p>
-        <a href="#order" class="sv-cta" data-i18n="sv2_cta">Order Takeout <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="sv-card">
-        <i class="fas fa-truck sv-icon"></i>
-        <h3 data-i18n="sv3_title">Delivery</h3>
-        <div class="sv-divider"></div>
-        <p data-i18n="sv3_desc">Enjoy freshly prepared Pakistani cuisine delivered straight to your door. We proudly offer complimentary delivery within a 5 km radius while maintaining fast service and exceptional food quality.</p>
-        <div class="sv-badge" data-i18n="sv3_badge">Free Delivery within 5 km</div>
-        <a href="#order" class="sv-cta" data-i18n="sv3_cta">Order Delivery <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="sv-card">
-        <i class="fas fa-calendar-check sv-icon"></i>
-        <h3 data-i18n="sv4_title">Catering</h3>
-        <div class="sv-divider"></div>
-        <p data-i18n="sv4_desc">From intimate family gatherings to weddings, corporate events, and large celebrations, our experienced catering team creates customized menus tailored to your guests, preferences, and budget while delivering authentic Pakistani flavors.</p>
-        <a href="#contact" class="sv-cta" data-i18n="sv4_cta">Request Catering <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-    <div class="sv-why-strip">
-      <h3><i class="fas fa-star" style="color:#C99700;font-size:0.9rem;margin-right:6px"></i> <span data-i18n="sv_why_title">Why Choose 786 Halal Restaurant?</span></h3>
-      <div class="sv-why-grid">
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why1">Authentic Pakistani Recipes</span></span>
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why2">100% Halal Ingredients</span></span>
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why3">Freshly Prepared Daily</span></span>
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why4">Family-Friendly Atmosphere</span></span>
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why5">Catering for Every Occasion</span></span>
-        <span><i class="fas fa-circle"></i> <span data-i18n="sv_why6">Fast Takeout &amp; Delivery</span></span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section style="padding:120px 0;background:#0E0E0E" id="order">
   <div class="container" style="max-width:720px">
     <div class="label" style="text-align:center" data-i18n="or_label">Order now</div>
     <h2 style="text-align:center;margin-bottom:40px" data-i18n="or_h2">Get 786 delivered or pick up</h2>
     <div class="order-strip">
       <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener">
-        <i class="fas fa-utensils" style="color:#5FB709"></i>
+        <i class="fab fa-ubereats" style="color:#5FB709"></i>
         <div class="lbl">Uber Eats</div>
         <div class="sub" data-i18n="or_sub">Delivery &bull; Pickup</div>
         <div class="cta" data-i18n="or_cta">Order now &rarr;</div>
       </a>
       <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener">
-        <i class="fas fa-truck-fast" style="color:#FF3008"></i>
+        <i class="fab fa-doordash" style="color:#FF3008"></i>
         <div class="lbl">DoorDash</div>
         <div class="sub" data-i18n="or_sub">Delivery &bull; Pickup</div>
         <div class="cta" data-i18n="or_cta">Order now &rarr;</div>
@@ -733,14 +608,14 @@ footer p{font-size:0.82rem;color:#666}
     </div>
     <!-- Premium info card overlay -->
     <div class="map-card">
-      <div class="mc-badge"><i class="fas fa-mosque"></i> <span data-i18n="mc_badge">100% Zabiha Halal</span></div>
+      <div class="mc-badge"><i class="fas fa-mosque"></i> 100% Zabiha Halal</div>
       <div class="mc-name">786 Halal Restaurant</div>
       <div class="mc-addr"><i class="fas fa-location-dot"></i> 850 Rue Jean-Talon Ouest, Montréal, QC</div>
-      <div class="mc-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="count">4.2 &middot; 4,200+ <span data-i18n="mc_reviews">reviews</span> <span class="mc-info"><i class="fas fa-info-circle"></i><span class="mc-tip" data-i18n="mc_tip">Average across Google (3.9 / 1,700+), Uber Eats (4.5 / 2,000+), DoorDash (4.3 / 500+)</span></span></span></div>
+      <div class="mc-rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><span class="count">4.2 &middot; 4,200+ reviews <span class="mc-info"><i class="fas fa-info-circle"></i><span class="mc-tip">Average across Google (3.9 / 1,700+), Uber Eats (4.5 / 2,000+), DoorDash (4.3 / 500+)</span></span></span></div>
       <div class="mc-hours" id="mcHours"><i class="fas fa-clock"></i><span id="mcStatus"></span></div>
       <div class="mc-actions">
         <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" class="mc-dir"><i class="fas fa-diamond-turn-right"></i> <span data-i18n="loc_directions">Get directions</span></a>
-        <a href="tel:+15142700786" class="mc-call"><i class="fas fa-phone"></i> <span data-i18n="mc_call">Call</span></a>
+        <a href="tel:+15142700786" class="mc-call"><i class="fas fa-phone"></i> Call</a>
       </div>
     </div>
     <!-- Animated marker -->
@@ -751,7 +626,7 @@ footer p{font-size:0.82rem;color:#666}
     </div>
     <div class="map-overlay">
       <a href="https://maps.app.goo.gl/K4S2wp3Z5ZwjBNMC7" target="_blank" rel="noopener" class="dir-btn"><i class="fas fa-diamond-turn-right"></i> <span data-i18n="loc_directions">Get directions</span></a>
-      <a href="https://www.google.com/maps/place/850+Rue+Jean-Talon+O,+Montr%C3%A9al,+QC+H3N+1S4/@45.5257833,-73.6250332,59a,75y,94.22h,95.45t/data=!3m7!1e1!3m5!1sYfH3yjQMJBsLXUyQ7_yY6g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-5.453303597073656%26panoid%3DYfH3yjQMJBsLXUyQ7_yY6g%26yaw%3D94.2232976827315!7i16384!8i8192" target="_blank" rel="noopener" class="street-btn"><i class="fas fa-street-view"></i> Street View</a>
+      <a href="https://www.google.com/maps/place/786+Halal+Restaurant/@45.5255,-73.6279,3a,75y,13.1h,90t/data=!3m6!1e1!3m4!1s0x0:0x0!2e0!7i13312!8i6656" target="_blank" rel="noopener" class="street-btn"><i class="fas fa-street-view"></i> Street View</a>
     </div>
   </div>
   <div class="info">
@@ -839,7 +714,6 @@ footer p{font-size:0.82rem;color:#666}
         <a href="#story" data-i18n="ft_story">Our story</a>
         <a href="#menu" data-i18n="ft_menu">Menu</a>
         <a href="#gallery" data-i18n="ft_gallery">Gallery</a>
-        <a href="#services" data-i18n="ft_services">Services</a>
         <a href="#reviews" data-i18n="ft_reviews">Reviews</a>
       </div>
       <div>
@@ -854,14 +728,13 @@ footer p{font-size:0.82rem;color:#666}
       <span data-i18n="ft_copy">&copy; 2026 786 Halal Restaurant &mdash; All rights reserved</span>
       <span data-i18n="ft_since">Built with tradition since 2008</span>
     </div>
-    <div class="bisweb-bar">Website built by <a href="https://wa.me/14505180296" target="_blank" rel="noopener">Bisweb</a> &middot; <a href="https://wa.me/14505180296" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> (450) 518-0296</a></div>
   </div>
 </footer>
 
 <div class="floating-bar show" id="floatingBar">
-  <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener" style="color:#5FB709"><i class="fas fa-utensils"></i><span>Uber Eats</span></a>
+  <a href="https://www.ubereats.com/ca/store/786-halal-restaurant/1Q9hBsEkSKa-6GghDFal1A" target="_blank" rel="noopener" style="color:#5FB709"><i class="fab fa-ubereats"></i><span>Uber Eats</span></a>
   <div class="sep"></div>
-  <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener" style="color:#FF3008"><i class="fas fa-truck-fast"></i><span>DoorDash</span></a>
+  <a href="https://www.doordash.com/en-CA/store/786-halal-restaurant-montr%C3%A9al-644832/12698765/" target="_blank" rel="noopener" style="color:#FF3008"><i class="fab fa-doordash"></i><span>DoorDash</span></a>
   <div class="sep"></div>
   <a href="https://order.online/store/786-halal-restaurant-montr%C3%A9al-644832" target="_blank" rel="noopener" style="color:#EDE8D8"><i class="fas fa-globe"></i><span data-i18n="bar_pickup">Pickup</span></a>
   <div class="sep"></div>
@@ -888,20 +761,20 @@ function animateIn(sel,fromVars){
   });
 }
 
-document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
+document.querySelectorAll('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-grid,.why-grid,.order-strip,.loc .info,.gallery-grid').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(24px)'});
 
-ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-carousel,.why-grid,.order-strip,.loc .info,.gallery-grid,.services-grid,.sv-why-strip',{
+ScrollTrigger.batch('.editorial,.signature,.tandoor,.st-text,.faq-wrap,.reviews-grid,.why-grid,.order-strip,.loc .info,.gallery-grid',{
   start:'top 87%',
   once:true,
   onEnter:batch=>gsap.to(batch,{opacity:1,y:0,duration:0.9,stagger:0.15,ease:'power3.out'})
 });
 
-ScrollTrigger.batch('.r-card,.why-card,.gallery-grid .item,.sv-card',{
+ScrollTrigger.batch('.r-card,.why-card,.gallery-grid .item',{
   start:'top 88%',
   once:true,
   onEnter:batch=>gsap.to(batch,{opacity:1,y:0,scale:1,duration:0.8,stagger:0.06,ease:'power2.out'})
 });
-document.querySelectorAll('.r-card,.why-card,.gallery-grid .item,.sv-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.scale='0.98'});
+document.querySelectorAll('.r-card,.why-card,.gallery-grid .item').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(18px)';el.style.scale='0.98'});
 }catch(e){console.warn('GSAP init skipped:',e)}
 
 // Mobile nav
@@ -917,14 +790,9 @@ document.querySelectorAll('.ml').forEach(a=>a.addEventListener('click',toggleMob
 window.addEventListener('scroll',()=>{
   const nav=document.getElementById('nav');
   const btt=document.getElementById('btt');
-  const fb=document.getElementById('floatingBar');
   const y=window.scrollY;
   nav.classList.toggle('scrolled',y>80);
   btt.classList.toggle('show',y>600);
-  if(fb){
-    const nearBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-120;
-    fb.classList.toggle('hide',nearBottom);
-  }
 });
 
 // Scroll to #order
@@ -967,72 +835,10 @@ window.addEventListener('scroll',()=>{
   document.getElementById('progress').style.width=(window.scrollY/h*100)+'%';
 });
 
-// ── Reviews carousel ────────────────────────────────────────────────────────────
-(function(){
-  const track=document.getElementById('reviewTrack');
-  if(!track)return;
-  const cards=track.querySelectorAll('.r-card');
-  if(cards.length<1)return;
-  const prev=document.getElementById('reviewPrev');
-  const next=document.getElementById('reviewNext');
-  const dots=document.getElementById('reviewDots');
-
-  let perPage=window.innerWidth<768?1:3;
-  let idx=0;
-  const total=cards.length;
-  const maxIdx=Math.ceil(total/perPage)-1;
-
-  function buildDots(){
-    if(!dots)return;
-    dots.innerHTML='';
-    const n=Math.ceil(total/perPage);
-    for(let i=0;i<n;i++){
-      const b=document.createElement('button');
-      b.className=i===0?'active':'';
-      b.dataset.idx=i;
-      b.addEventListener('click',()=>go(i));
-      dots.appendChild(b);
-    }
-  }
-
-  function go(i){
-    idx=Math.max(0,Math.min(i,maxIdx));
-    const pct=-(idx*100/perPage);
-    track.style.transform='translateX('+pct+'%)';
-    if(dots){
-      dots.querySelectorAll('button').forEach((b,i)=>b.className=i===idx?'active':'');
-    }
-  }
-
-  function updatePerPage(){
-    const n=window.innerWidth<768?1:3;
-    if(n!==perPage){
-      perPage=n;
-      idx=0;
-      track.style.transform='translateX(0%)';
-      buildDots();
-      go(0);
-    }
-  }
-
-  // Arrows
-  if(prev)prev.addEventListener('click',()=>go(idx-1));
-  if(next)next.addEventListener('click',()=>go(idx+1));
-  window.addEventListener('resize',updatePerPage);
-
-  track.style.transform='translateX(0%)';
-  buildDots();
-
-  // Auto-play
-  let timer=setInterval(()=>go(idx+1),5000);
-  track.addEventListener('mouseenter',()=>clearInterval(timer));
-  track.addEventListener('mouseleave',()=>{timer=setInterval(()=>go(idx+1),5000);});
-})();
-
 // ── i18n ──────────────────────────────────────────────────────────────────────
 const translations={
   // Nav
-  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_services:"Services",nav_reviews:"Avis",nav_order_link:"Commander",nav_order_cta:"Commander en ligne",nav_contact:"Contact",
+  nav_story:"Histoire",nav_menu:"Menu",nav_gallery:"Galerie",nav_reviews:"Avis",nav_order:"Commander en ligne",nav_contact:"Contact",
   // Hero
   hero_badge:"Montréal · Depuis 2008",hero_h1:"La nourriture pakistanaise,<br>telle qu'elle devrait être.",
   hero_p:"850 Jean-Talon Ouest. 100% Zabiha Halal. Recettes familiales transmises depuis trois générations.",
@@ -1069,81 +875,22 @@ const translations={
   // Reviews
   rv_label:"De nos clients",rv_h2:"Pourquoi les gens reviennent",
   rv_d1:"il y a 2 semaines",rv_d2:"la semaine dernière",rv_d3:"il y a 3 semaines",rv_d4:"il y a 5 jours",
-  rv_d5:"Hier",rv_d6:"il y a 1 semaine",rv_d7:"il y a 2 semaines",rv_d8:"il y a 3 semaines",rv_d9:"il y a 1 mois",rv_d10:"il y a 4 jours",
-  rv_d11:"il y a 2 mois",rv_d12:"la semaine dernière",rv_d13:"il y a 3 semaines",rv_d14:"il y a 5 jours",rv_d15:"il y a 1 mois",
-  rv_d16:"il y a 2 semaines",rv_d17:"il y a 1 semaine",rv_d18:"Hier",rv_d19:"il y a 3 semaines",rv_d20:"il y a 2 mois",
-  rv_d21:"il y a 4 jours",rv_d22:"la semaine dernière",rv_d23:"il y a 3 semaines",rv_d24:"il y a 1 mois",rv_d25:"il y a 5 jours",
-  rv_d26:"il y a 2 semaines",rv_d27:"la semaine dernière",rv_d28:"il y a 3 semaines",rv_d29:"il y a 1 semaine",rv_d30:"Hier",
-  rv_d31:"il y a 2 semaines",rv_d32:"il y a 4 jours",rv_d33:"il y a 1 mois",rv_d34:"il y a 3 semaines",rv_d35:"la semaine dernière",
-  rv_d36:"il y a 5 jours",rv_d37:"il y a 2 mois",rv_d38:"il y a 1 semaine",rv_d39:"il y a 3 semaines",rv_d40:"Hier",
   rv_q1:"«Le Chargha au poulet est le meilleur que j'ai eu en dehors de Lahore. Croustillant, parfaitement épicé, incroyable masala. Un bijou caché à Montréal.»",
   rv_q2:"«J'ai commandé le Nihari de bœuf pour la première fois — une profondeur de saveur absolument incroyable. Le naan est arrivé frais même en livraison. Super impressionnée.»",
   rv_q3:"«Le Biryani au poulet est extraordinaire. Portions généreuses, arôme incroyable, excellent service. On goûte la tradition à chaque bouchée.»",
   rv_q4:"«Meilleur restaurant halal à Montréal. Le Lamb Karahi est parfait — tendre, riche et merveilleusement épicé. Et le naan à l'ail est toujours au point.»",
-  rv_q5:"«Le Poulet au beurre est sans conteste le meilleur à Montréal. Crémeux, riche, parfaitement épicé. Le naan à l'ail était chaud et frais même en livraison.»",
-  rv_q6:"«J'adore le Chapli Kabab! Croustillant à l'extérieur, juteux à l'intérieur. La touche de grenade est parfaite. Ça me rappelle Peshawar.»",
-  rv_q7:"«J'ai commandé l'assiette de Seekh Kabab pour un dîner en famille et tout le monde a été époustouflé. Parfaitement grillé, épices incroyables. La chutney à la menthe est fantastique.»",
-  rv_q8:"«Le Palak Paneer est incroyable — épinards soyeux avec généreux morceaux de paneer maison. Le meilleur plat végétarien que j'ai eu depuis longtemps.»",
-  rv_q9:"«Je commande chez 786 depuis des années. Le Biryani au poulet est toujours incroyable — parfumé, parfaitement layered, portions généreuses. Ne déçoit jamais.»",
-  rv_q10:"«J'ai essayé le Nihari de bœuf pour la première fois hier soir. Fondant, riche en saveur, une profondeur de goût incroyable. À essayer absolument.»",
-  rv_q11:"«Le Lamb Karahi ici est le vrai. Agneau tendre, épices authentiques, cuit parfaitement. Ça goûte comme quelque chose d'un dhaba au Pendjab.»",
-  rv_q12:"«Le Naan à l'ail seul vaut le déplacement. Parfaitement cuit au tandoor, chargé d'ail et de beurre. Meilleur naan à Montréal, sans hésitation.»",
-  rv_q13:"«J'ai mangé le Tikka de poulet et c'était phénoménal. Fumé, juteux, parfaitement grillé. Le chaat masala dessus — chef's kiss. Je reviendrai.»",
-  rv_q14:"«Le Haleem est absolument divin. Consistance parfaite, mélange d'épices incroyable, servi avec oignons frits croustillants et citron. Le confort ultime.»",
-  rv_q15:"«786 est une institution montréalaise. Le Chargha au poulet est légendaire — peau parfaitement épicée, viande tendre. Chaque ami que j'amène devient un habitué.»",
-  rv_q16:"«Le Daal Makhni est le réconfort dans un bol. Cuit lentement à la perfection, crémeux, riche. Ça goûte comme si ça mijotait depuis des heures. Authentique.»",
-  rv_q17:"«Enfin trouvé de la nourriture pakistanaise authentique à Montréal. Le Mutton Karahi est incroyable — viande tendre, sauce tomate riche, piquant parfait. Comme à la maison.»",
-  rv_q18:"«J'ai commandé le Qorma de poulet et c'était la perfection. Parfumé, crémeux, parfaitement épicé. Le naan était doux et frais. Je recommande vivement.»",
-  rv_q19:"«Le Bihari Kebab de bœuf est hors du monde. Tellement tendre, parfaitement mariné, fumé incroyable. La sauce au yaourt accompagne parfaitement. Exceptionnel.»",
-  rv_q20:"«Meilleure option de livraison halal à Montréal sans aucun doute. Le Biryani au poulet arrive frais, aromatique, parfaitement emballé. Portions très généreuses.»",
-  rv_q21:"«L'Aloo Gobi est incroyable — parfaitement épicé, pas gras, portion généreuse. Ça goûte comme ma mère faisait. Le roti était frais et doux.»",
-  rv_q22:"«Le Curry de poisson est un joyau caché. Parfaitement épicé, poisson tendre, sauce incroyable. Peu d'endroits à Montréal font bien le poisson — 786 le fait.»",
-  rv_q23:"«Le Chapli Kabab avec naan frais est le repas parfait. Croustillant, savoureux, servi avec une salade et un yogourt incroyables. J'en veux encore!»",
-  rv_q24:"«J'ai amené ma famille au restaurant — tout le monde a adoré. L'assiette de Seekh Kabab a eu beaucoup de succès. Le service est chaleureux. Un vrai joyau montréalais.»",
-  rv_q25:"«Première fois que j'essaie la cuisine pakistanaise et je suis convertie. Le Poulet au beurre est le meilleur que j'aie jamais mangé. Le naan à l'ail est phénoménal.»",
-  rv_q26:"«Le Korma d'agneau est le confort ultime. Riche, crémeux, parfaitement épicé, chargé d'agneau tendre. Servi avec naan frais — la perfection absolue.»",
-  rv_q27:"«J'ai envie du Chargha au poulet chaque semaine. Cette peau croustillante et épicée est addictive. La viande se détache de l'os. Servi avec salade et naan — imbattable.»",
-  rv_q28:"«Le Baingan Bharta est incroyable — fumé, parfaitement épicé, texture riche. Même mon mari amateur de viande n'en a pas eu assez. Végétarien réussi.»",
-  rv_q29:"«Le Daal Chawal goûte exactement comme à la maison. Réconfortant, simple, parfait. Parfois les plats simples en disent le plus sur un restaurant. Exceptionnel.»",
-  rv_q30:"«J'ai commandé le combo Tikka de poulet et Seekh Kabab — absolument fantastique. Parfaitement grillé, marinade incroyable, portions généreuses. Meilleur BBQ à Montréal.»",
-  rv_q31:"«Le Palak Paneer ici a ruiné tous les autres palak paneer pour moi. C'est tellement bon. Frais, crémeux, parfaitement épicé. Un côté de naan à l'ail complète le repas.»",
-  rv_q32:"«Le Raita et la Salade qui accompagnent chaque repas sont si frais et bien préparés. On voit que tout est fait maison. Je recommande fortement!»",
-  rv_q33:"«Le Nihari de bœuf avec naan est ma commande habituelle. La sauce est riche, le bœuf fond dans la bouche. Un peu de gingembre et de piment vert dessus — parfait.»",
-  rv_q34:"«Le Biryani au poulet est le vrai. Couches de basmati parfumé, poulet tendre, niveau d'épices parfait. Servi avec raita et salan. Authentique style Lahori.»",
-  rv_q35:"«Meilleure nourriture halal à Montréal et de loin. Le Chapli Kabab est incroyable, le Biryani est parfait, et le service est toujours chaleureux.»",
-  rv_q36:"«Le Paneer Tikka est fantastique — parfaitement grillé, magnifiquement épicé, servi avec chutney à la menthe. Même mes amis carnivores ont adoré.»",
-  rv_q37:"«Le Lamb Karahi est le plat qui me fait revenir. Riche, aromatique, équilibre d'épices parfait. Servi avec naan chaud frais — un must absolu.»",
-  rv_q38:"«Je viens de découvrir ce joyau et j'ai déjà commandé trois fois. Le Qorma de poulet est exceptionnel. Tout a un goût frais et fait avec amour.»",
-  rv_q39:"«Le Chargha au poulet est absolument addictif. Cette peau croustillante et épicée est la perfection. La viande est si tendre qu'elle se détache de l'os. Un must à chaque commande.»",
-  rv_q40:"«J'ai commandé un service traiteur de 786 pour notre événement de bureau — énorme succès. Le Biryani au poulet et le Poulet au beurre ont nourri 20 personnes. Tout le monde a demandé d'où ça venait.»",
   // Why
   wh_label:"Pourquoi 786",wh_h2:"Ce qui nous distingue",
   wh1_h:"Halal Zabiha",wh1_p:"Poulet, agneau et bœuf 100% Zabiha Halal. Nous nous fournissons auprès de fournisseurs certifiés et notre cuisine est entièrement conforme au Halal.",
   wh2_h:"Épices moulues à la main",wh2_p:"Chaque mélange d'épices est fait en cuisine, en petits lots. Pas de raccourcis, pas de mélanges prêts. Comme on faisait avant.",
   wh3_h:"Tandoor traditionnel",wh3_p:"Notre four à argile est allumé tous les jours depuis 2008. Naan frais, kebabs et tikka préparés sur commande — à chaque fois.",
   wh4_h:"Entreprise familiale",wh4_p:"La famille Khan sert Montréal depuis 2008. Trois générations, une cuisine, un quartier.",
-  // Services
-  sv_label:"Nos Services",sv_h2:"Sur place, à emporter, traiteur",
-  sv_sub:"Profitez de l'hospitalité pakistanaise authentique, que ce soit pour manger sur place, emporter votre repas à la maison ou nous faire traiteur pour votre prochain événement.",
-  sv1_title:"Expérience Sur Place",sv1_desc:"Savourez une cuisine halal pakistanaise authentique dans un cadre élégant et accueillant. Notre restaurant spacieux et notre hospitalité chaleureuse sont conçus pour rendre chaque repas comme à la maison, apportant les riches saveurs et traditions du Pakistan à Montréal.",
-  sv1_cta:"Réserver une Table",
-  sv2_title:"À Emporter",sv2_desc:"Emportez le goût du Pakistan partout où vous allez. Chaque commande est soigneusement préparée et emballée dans des matériaux de qualité alimentaire pour préserver la fraîcheur, la saveur et la présentation de notre cuisine à votre table.",
-  sv2_cta:"Commander à Emporter",
-  sv3_title:"Livraison",sv3_desc:"Savourez une cuisine pakistanaise fraîchement préparée livrée directement chez vous. Nous offrons fièrement la livraison gratuite dans un rayon de 5 km tout en maintenant un service rapide et une qualité exceptionnelle.",
-  sv3_badge:"Livraison Gratuite dans 5 km",sv3_cta:"Commander",
-  sv4_title:"Traiteur",sv4_desc:"Des réunions intimes aux mariages, événements d'entreprise et grandes célébrations, notre équipe de traiteur expérimentée crée des menus personnalisés adaptés à vos invités, préférences et budget tout en offrant des saveurs pakistanaises authentiques.",
-  sv4_cta:"Demander un Devis",
-  sv_why_title:"Pourquoi Choisir 786 Halal Restaurant ?",
-  sv_why1:"Recettes Pakistanaises Authentiques",sv_why2:"100% Ingrédients Halal",sv_why3:"Préparé Fraîchement Chaque Jour",
-  sv_why4:"Ambiance Familiale",sv_why5:"Traiteur pour Toute Occasion",sv_why6:"Service Rapide à Emporter et Livraison",
-  ft_services:"Services",
   // Order
   or_label:"Commander",or_h2:"Obtenez 786 livré ou à emporter",
   or_sub:"Livraison • À emporter",or_cta:"Commander →",or_online:"Commande en ligne",or_direct:"À emporter directement",
   or_phone:"Ou appelez pour commander",
   // Location
   loc_h2:"Rendez-nous visite",loc_directions:"Obtenir les directions",
-  mc_badge:"100% Halal Zabiha",mc_reviews:"avis",mc_tip:"Moyenne sur Google (3.9 / 1 700+), Uber Eats (4.5 / 2 000+), DoorDash (4.3 / 500+)",mc_call:"Appeler",
   // FAQ
   faq_label:"Questions",faq_h2:"Questions fréquentes",
   faq_q1:"La viande est-elle 100% Halal ?",faq_a1:"Oui. Nous sommes un restaurant 100% Zabiha Halal. Notre poulet, agneau et bœuf proviennent de fournisseurs Halal certifiés. Notre cuisine est entièrement conforme au Halal.",
@@ -1154,7 +901,7 @@ const translations={
   faq_q6:"Où êtes-vous situés ?",faq_a6:"Nous sommes au 850 rue Jean-Talon Ouest, Montréal, QC H3N 1S4. Près du coin de Jean-Talon et Bloomfield, à quelques pas du métro Jean-Talon. Stationnement de rue abondant.",
   // Footer
   ft_tagline:"Cuisine pakistanaise à Montréal. 100% Zabiha Halal. Entreprise familiale.",
-  ft_order:"Commander",ft_online:"Commande en ligne",ft_links:"Liens",ft_story:"Notre histoire",ft_menu:"Menu",ft_gallery:"Galerie",ft_services:"Services",ft_reviews:"Avis",ft_contact:"Contact",
+  ft_order:"Commander",ft_online:"Commande en ligne",ft_links:"Liens",ft_story:"Notre histoire",ft_menu:"Menu",ft_gallery:"Galerie",ft_reviews:"Avis",ft_contact:"Contact",
   ft_copy:"© 2026 786 Halal Restaurant — Tous droits réservés",ft_since:"Fait avec tradition depuis 2008",
   // Floating bar
   bar_pickup:"À emporter",bar_call:"Appeler"
